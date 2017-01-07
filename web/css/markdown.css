@@ -1,0 +1,67 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#top {
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 80px;
+    background: #eee;
+}
+
+.title {
+    float: left;
+    line-height: 80px;
+    font-size: 30px;
+}
+
+.publish {
+    text-decoration: none;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    width: 80px;
+    display: block;
+    float: right;
+    background: #be1a21;
+    font-weight: bolder;
+}
+
+.publish:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #be3d38;
+}
+
+.common_wrap {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background: #9aecee;
+    width: 50%;
+
+}
+
+.markdown {
+    padding:10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 50%;
+    overflow:auto;
+}
+
+.commonInput {
+    padding:10px;
+    width: 100%;
+    height: 100%;
+}
+#content_wrap{
+    position: relative;
+    width: 100%;
+}

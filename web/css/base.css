@@ -1,0 +1,103 @@
+footer {
+    margin-top: 100px;
+    margin-bottom: 0.5em;
+    clear: both;
+    width: 100%;
+    /*height: 50px;*/
+    /*background: #eea236;*/
+}
+
+footer p {
+    margin-top: 0.5em;
+    text-align: center;
+    color: #999;
+
+}
+
+@font-face {
+    font-family: Cormorant-Regular;
+    src: url("/font/Cormorant-Regular.ttf");
+    font-family: taiji;
+    src: url("/font/taiji.otf");
+    font-family: Gravity-Regular;
+    src: url("/font/Gravity-Regular.otf");
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+}
+
+body {
+    background: #eceff1;
+}
+
+/*导航*/
+nav {
+    width: 100%;
+    height: 80px;
+    background: #eea236;
+}
+
+/*居中文字*/
+.container {
+    overflow: hidden;
+    margin: 20px auto;
+    width: 75%;
+}
+
+.f-14-gray {
+    font-size: 14px;
+    color: #999;
+}
+
+.f-14-blue {
+    font-size: 14px;
+    color: #2a6496;
+}
+
+/*百分比宽度*/
+.col-w-1 {
+    width: 10%;
+}
+
+.col-w-2 {
+    width: 20%;
+}
+
+.col-w-2_5 {
+    width: 25%;
+}
+
+.col-w-3 {
+    width: 30%;
+}
+
+.col-w-4 {
+    width: 40%;
+}
+
+.col-w-5 {
+    width: 50%;
+}
+
+.col-w-6 {
+    width: 60%;
+}
+
+.col-w-7 {
+    width: 70%;
+}
+
+.col-w-8 {
+    width: 80%;
+}
+
+.col-w-9 {
+    width: 90%;
+}
+
+.col-w-10 {
+    width: 100%;
+}

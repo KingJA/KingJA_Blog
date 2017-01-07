@@ -1,0 +1,125 @@
+/*文章区*/
+.left-wrap {
+    box-sizing: border-box;
+    width: 75%;
+    /*height: 800px;*/
+    float: left;
+}
+
+/*侧边区/*/
+.side {
+    padding-right: 12px;
+    padding-left: 12px;
+    /*border: 1px solid #5e5e5e;*/
+    float: right;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.side-li {
+    list-style: none;
+    border-bottom: 1px dashed #c1c1c1;
+    padding: 0.5em 0;
+}
+
+.side-li:last-child {
+    border-bottom: none;
+}
+
+.side-a {
+    font-size: 1.2em;
+    color: #333333;
+    text-decoration: none;
+}
+
+.side-a:hover {
+    color: #2a6496;
+}
+
+.side-title {
+    display: inline-block;
+    padding: 0.5em 0;
+    /*background: #ffff00;*/
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    border-bottom: 4px solid #2a6496;
+}
+
+.block {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 2em;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 4px 4px 4px #c6c6c6;
+    box-sizing: border-box;
+    transition-duration: 0.3s;
+}
+.block:hover {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 6px 6px 6px #c6c6c6;
+    box-sizing: border-box;
+}
+
+.article-category {
+    /*border: 1px solid #5e5e5e;*/
+    float: left;
+    width: 15%;
+    box-sizing: border-box;
+}
+
+
+.article-category p {
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+.article-category .category {
+    background: #2a6496;
+}
+
+.article-category .date {
+    background: #eea236;
+}
+
+.title-wrap{
+    border-bottom: 2px solid #cecece;
+}
+.content-wrap{
+    min-height: 500px;
+    padding:20px;
+    /*background: #eee8b1;*/
+}
+
+.title-wrap p{
+    text-align: center;
+    margin-top: 0.8em;
+}
+.article-title{
+
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: #333;
+}
+.article-info{
+    color: #666;
+    font-weight: 500;
+
+}
+.article-tag{
+    margin-bottom: 1em;
+}
+.article-tag span{
+    margin-left: 1em;
+    font-weight: bold;
+    color: #2a6496;
+}
+
+.left-comment{
+    height: 200px;
+}

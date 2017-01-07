@@ -1,0 +1,104 @@
+i {
+    color: #e4a829;
+}
+
+.admin-logo {
+    height: 100px;
+    border: 1px solid #2a6496;
+
+}
+
+.control-nav {
+    height: 500px;
+    width: 20%;
+    border: 1px solid #2a6496;
+    float: left;
+    box-sizing: border-box;
+}
+
+.control-display {
+    padding:12px;
+    height: 500px;
+    width: 80%;
+    border: 1px solid #2a6496;
+    float: right;
+    box-sizing: border-box;
+}
+
+.control-nav-a {
+    text-decoration: none;
+    color: #333;
+}
+
+.control-nav ul {
+}
+
+.control-nav-a {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    background: #c9cabb;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+.active {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0.5em 0;
+    text-align: center;
+    background: #cab460;
+
+}
+
+.control-nav-a:hover {
+    color: #232def;
+}
+
+table {
+}
+
+tr:nth-child(even) {
+    background: #e7e7e7;
+}
+
+
+table{
+
+    width: 100%;
+}
+td{
+    text-align: center;
+    padding:0.5em 0;
+    border-bottom: 1px solid #a3a3a3;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+.td-title{
+    text-align:left;
+    text-indent: 10px;
+}
+table a{
+    color: #2a6496;
+    text-decoration: none;
+}
+table a:hover{
+    color: #2a6496;
+    text-decoration: underline;
+}
+.td-title span {
+    color: #999;
+    margin-left: 10px;
+}
+.th-title th{
+    padding:0.5em 0;
+    border-bottom: 2px solid #5e5e5e;
+}
+tr:not(.th-title):hover {
+    background: #eee8b1;
+}
+
+
+

@@ -1,0 +1,109 @@
+
+
+
+
+/*文章区*/
+.content {
+    box-sizing: border-box;
+    width: 75%;
+    border: 1px solid #5e5e5e;
+    height: 800px;
+    float: left;
+}
+
+/*侧边区/*/
+.side {
+    padding-right: 12px;
+    padding-left: 12px;
+    /*border: 1px solid #5e5e5e;*/
+    float: right;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.side-li {
+    list-style: none;
+    border-bottom: 1px dashed #c1c1c1;
+    padding: 0.5em 0;
+}
+
+.side-li:last-child {
+    border-bottom: none;
+}
+
+.side-a {
+    font-size: 1.2em;
+    color: #333333;
+    text-decoration: none;
+}
+
+.side-a:hover {
+    color: #2a6496;
+}
+
+.side-title {
+    display: inline-block;
+    padding: 0.5em 0;
+    /*background: #ffff00;*/
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    border-bottom: 4px solid #2a6496;
+}
+
+.block {
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 4px 4px 4px #c6c6c6;
+    box-sizing: border-box;
+    border-bottom: 4px solid #2a6496;
+}
+
+.article-category {
+    /*border: 1px solid #5e5e5e;*/
+    float: left;
+    width: 15%;
+    box-sizing: border-box;
+}
+
+.article-content {
+    padding: 20px;
+    /*border: 1px solid #5e5e5e;*/
+    float: right;
+    width: 85%;
+    height: inherit;
+    box-sizing: border-box;
+}
+.article-category p{
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    text-align: center;
+}
+.article-category .category{
+    background: #2a6496;
+}.article-category .date{
+    background: #eea236;
+}
+ .article{
+     overflow:hidden;
+     padding:20px;
+     border-bottom: 1px dashed #c1c1c1;
+ }
+.article-title {
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+}
+
+.article-title:hover{
+    color: #2a6496;
+}
+.comment-count,.read-count{
+    float: right;
+    margin-right: 20px;
+}
+.article-param{
+    margin-top: 12px;
+}
+
