@@ -11,7 +11,17 @@ public class JResult<T> {
     private String resultText;
     private T resultData;
 
+    public int getResultCode() {
+        return resultCode;
+    }
 
+    public String getResultText() {
+        return resultText;
+    }
+
+    public T getResultData() {
+        return resultData;
+    }
 
     public JResult setResultText(String resultText) {
         this.resultText = resultText;

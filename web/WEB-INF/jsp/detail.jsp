@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>主页</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/article.css" rel="stylesheet">
+    <link href="/css/saveArticle.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
-    <link href="./font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,12 +20,12 @@
         <div class="content block">
 
             <div class="title-wrap">
-                <p class="article-title">如何读懂并写出装逼的函数式代码</p>
+                <p class="saveArticle-title">如何读懂并写出装逼的函数式代码</p>
 
 
-                <p class="article-info">阅读数(<span class="f-14-blue">2654</span>) 评论数(<span class="f-14-blue">54</span>)
+                <p class="saveArticle-info">阅读数(<span class="f-14-blue">2654</span>) 评论数(<span class="f-14-blue">54</span>)
                     2016-10-12 12:22</p>
-                <p class="article-tag">
+                <p class="saveArticle-tag">
                     <i class="fa fa-tag fa-lg"></i>
                     <span>Android</span>
                     <span>Java</span>
@@ -33,7 +33,7 @@
                 </p>
 
             </div>
-            <div class="content-wrap" id="article">
+            <div class="content-wrap" id="saveArticle">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quisquam.
             </div>
 
@@ -81,21 +81,15 @@
 
 
 </div>
-<footer>
+<jsp:include page="footer.jsp"></jsp:include>
 
-    <p>当前在线人数(<span class="f-14-blue">1228</span>)&nbsp;历史访问人数(<span class="f-14-blue">825275</span>)</p>
-    <p>© 2017 KingJA</p>
-    <p>由 KingJA 强力驱动 主题 - KingJA.Genesis</p>
-
-
-</footer>
 <script src="/js/jquery-3.1.1.js"></script>
 <script src="/js/markdown.js"></script>
 <script>
     $(function () {
         $.ajax({
             url: "temp.md", success: function (result) {
-                $("#article").html(markdown.toHTML(result));
+                $("#saveArticle").html(markdown.toHTML(result));
             }
         });
 

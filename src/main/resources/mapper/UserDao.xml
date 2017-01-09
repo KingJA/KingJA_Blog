@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingja.springmvc.dao.UserDao">
+    <!--namespace :对应的接口类-->
+    <!--select :对应的接口类的方法-->
+    <!--parameterType :对应的接口类的参数类型-->
+    <!--resultType :对应的接口类的返回类型-->
+
+    <select id="checkAdmin"  resultType="com.kingja.springmvc.entity.User">
+        SELECT id,nick FROM user
+        WHERE name = #{name} AND password = #{password}
+    </select>
+
+
+</mapper>

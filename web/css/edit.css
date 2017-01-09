@@ -8,16 +8,19 @@
     padding-right: 30px;
     height: 80px;
     background: #eee;
+    width: 100%;
+}
+#top {
+    padding-top:20px;
 }
 
-.title {
-    float: left;
-    line-height: 80px;
-    font-size: 30px;
+#top #title{
+    font-size: 1.2em;
+    width: 500px;
+    text-indent: 0.5em;
 }
 
-.publish {
-    text-decoration: none;
+#publish {
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -30,8 +33,8 @@
     font-weight: bolder;
 }
 
-.publish:hover {
-    text-decoration: none;
+#publish:hover {
+    cursor: pointer;
     color: #fff;
     background: #be3d38;
 }

@@ -30,9 +30,9 @@ i {
     color: #333;
 }
 
-.control-nav ul {
+.control-ul li{
+    list-style: none;
 }
-
 .control-nav-a {
     display: inline-block;
     width: 100%;
@@ -93,6 +93,7 @@ table a:hover{
     margin-left: 10px;
 }
 .th-title th{
+    text-align: center;
     padding:0.5em 0;
     border-bottom: 2px solid #5e5e5e;
 }

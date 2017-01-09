@@ -15,15 +15,15 @@
 
 <div class="container">
     <div class="content block">
-        <div class="article">
-            <div class="article-category">
+        <div class="saveArticle">
+            <div class="saveArticle-category">
                 <p class="category">Java</p>
                 <p class="date">2016-10-12</p>
 
             </div>
-            <div class="article-content">
-                <div><a class="article-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
-                <div class="article-param">
+            <div class="saveArticle-content">
+                <div><a class="saveArticle-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
+                <div class="saveArticle-param">
                     <div class="read-count f-14-gray">阅读(201525)</div>
                     <div class="comment-count f-14-gray">评论数(201525)</div>
 
@@ -32,15 +32,15 @@
             </div>
 
         </div>
-        <div class="article">
-            <div class="article-category">
+        <div class="saveArticle">
+            <div class="saveArticle-category">
                 <p class="category">Java</p>
                 <p class="date">2016-10-12</p>
 
             </div>
-            <div class="article-content">
-                <div><a class="article-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
-                <div class="article-param">
+            <div class="saveArticle-content">
+                <div><a class="saveArticle-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
+                <div class="saveArticle-param">
                     <div class="read-count f-14-gray">阅读(201525)</div>
                     <div class="comment-count f-14-gray">评论数(201525)</div>
 

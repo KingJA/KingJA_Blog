@@ -13,7 +13,9 @@ footer p {
     color: #999;
 
 }
-
+li {
+    list-style: none;
+}
 @font-face {
     font-family: Cormorant-Regular;
     src: url("/font/Cormorant-Regular.ttf");
