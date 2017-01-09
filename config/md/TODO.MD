@@ -5,3 +5,7 @@ web端技术选型
 * JS : jQuery,vue.js,javascript
 * css: css,less
 * 响应式:自己布局响应式
+
+# 2017-01-09
+* 登录模块
+* 文章发布模块
