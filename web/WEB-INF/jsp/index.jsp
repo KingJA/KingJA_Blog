@@ -1,9 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/home.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
 </head>
@@ -15,41 +18,66 @@
 
 <div class="container">
     <div class="content block">
-        <div class="saveArticle">
-            <div class="saveArticle-category">
+       <%-- <div class="article">
+            <div class="article-category">
                 <p class="category">Java</p>
                 <p class="date">2016-10-12</p>
 
             </div>
-            <div class="saveArticle-content">
-                <div><a class="saveArticle-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
-                <div class="saveArticle-param">
+            <div class="article-content">
+                <div><a class="article-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
+                <div class="article-param">
                     <div class="read-count f-14-gray">阅读(201525)</div>
                     <div class="comment-count f-14-gray">评论数(201525)</div>
+                </div>
+            </div>
+        </div>--%>
+        <c:if test="${!empty articlePage.pageDatas}">
+            <c:forEach items="${articlePage.pageDatas}" var="article">
+                <div class="article">
+                    <div class="article-category">
+                        <p class="category">${article.tag}</p>
+                        <p class="date">${article.updateTime}</p>
+
+                    </div>
+                    <div class="article-content">
+                        <div><a class="article-title" href="#">${article.title}</a></div>
+                        <div class="article-param">
+                            <div class="read-count f-14-gray">阅读(${article.readCount})</div>
+                            <div class="comment-count f-14-gray">评论数(${article.commentCount})</div>
+
+                        </div>
+
+                    </div>
 
                 </div>
+            </c:forEach>
+        </c:if>
 
-            </div>
+           <ul class="pagination">
+               <c:if test="${articlePage.hasPrevious}">
+                   <li>
+                       <a href="/article/${articlePage.previousPage}">&laquo;上一页</a>
+                   </li>
+               </c:if>
 
-        </div>
-        <div class="saveArticle">
-            <div class="saveArticle-category">
-                <p class="category">Java</p>
-                <p class="date">2016-10-12</p>
+               <c:forEach var="x" begin="${articlePage.pageStart}"
+                          end="${articlePage.pageEnd}">
 
-            </div>
-            <div class="saveArticle-content">
-                <div><a class="saveArticle-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
-                <div class="saveArticle-param">
-                    <div class="read-count f-14-gray">阅读(201525)</div>
-                    <div class="comment-count f-14-gray">评论数(201525)</div>
+                   <c:if test="${articlePage.currentPage==x}">
+                       <li class="active"><a href="javascript:return false;">${x}</a></li>
+                   </c:if>
+                   <c:if test="${articlePage.currentPage!=x}">
+                       <li><a href="/article/${x}">${x}</a></li>
+                   </c:if>
+               </c:forEach>
 
-                </div>
 
-            </div>
-
-        </div>
-
+               <c:if test="${articlePage.hasNext}">
+                   <li><a href="/article/${articlePage.nextPage}">下一页&raquo;</a>
+                   </li>
+               </c:if>
+           </ul>
 
     </div>
 

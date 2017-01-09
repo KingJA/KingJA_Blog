@@ -64,25 +64,16 @@ public class AdminController {
         return jResult;
     }
 
-    /**
-     * 文章管理页
-     * @return
-     */
-    @RequestMapping(value = "/article", method = RequestMethod.GET)
-    public ModelAndView article() {
-        ModelAndView modelAndView = new ModelAndView("article");
-        return modelAndView;
-    }
 
     /**
      * 获取文章列表
-     * @param currentPage
+     * @param page
      * @return
      */
-    @RequestMapping(value = "/article/{currentPage}", method = RequestMethod.GET)
-    public ModelAndView shop(@PathVariable int currentPage) {
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
+    public ModelAndView article(@RequestParam("page") int page) {
         ModelAndView modelAndView = new ModelAndView("article");
-        Page<Article> articlePage = adminService.getArticlesByPage(currentPage, 5);
+        Page<Article> articlePage = adminService.getArticlesByPage(page, 5);
         modelAndView.addObject("articlePage",articlePage);
         return modelAndView;
     }

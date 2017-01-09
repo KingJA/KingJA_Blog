@@ -1,5 +1,7 @@
 package com.kingja.springmvc.entity;
 
+import com.kingja.springmvc.util.DateUtil;
+
 import java.util.Date;
 
 /**
@@ -34,16 +36,16 @@ public class Article {
         this.commentCount = commentCount;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCreateTime() {
+        return DateUtil.getYearDay(createTime);
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getUpdateTime() {
+        return DateUtil.getYearDay(updateTime);
     }
 
     public void setUpdateTime(Date updateTime) {
@@ -83,8 +85,6 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
-
-
 
 
     public long getAuthorId() {

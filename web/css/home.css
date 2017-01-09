@@ -57,7 +57,7 @@
     background: #fff;
     box-shadow: 4px 4px 4px #c6c6c6;
     box-sizing: border-box;
-    border-bottom: 4px solid #2a6496;
+    /*border-bottom: 4px solid #2a6496;*/
 }
 
 .article-category {
