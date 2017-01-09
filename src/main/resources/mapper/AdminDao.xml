@@ -11,5 +11,8 @@
     <select id="getArticlesByPage" resultType="com.kingja.springmvc.entity.Article">
         select * from article ORDER BY createTime DESC limit #{startRow},#{pageSize}
     </select>
+    <select id="getArticles" resultType="com.kingja.springmvc.entity.Article">
+        select * from article ORDER BY createTime DESC
+    </select>
 
 </mapper>

@@ -3,6 +3,7 @@ package com.kingja.springmvc.service;
 
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.util.Page;
+import com.kingja.springmvc.util.Page2;
 
 /**
  * Description：TODO
@@ -12,4 +13,5 @@ import com.kingja.springmvc.util.Page;
  */
 public interface AdminService {
     Page<Article> getArticlesByPage(int currentPage, int pageSize);
+    Page2<Article> getArticles(int currentPage, int pageSize);
 }

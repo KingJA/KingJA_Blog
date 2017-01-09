@@ -3,6 +3,7 @@ package com.kingja.springmvc.controller;
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page;
+import com.kingja.springmvc.util.Page2;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class MainController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView("index");
-        Page<Article> articlePage = adminService.getArticlesByPage(1, 5);
+        Page2<Article> articlePage = adminService.getArticles(1, 5);
         modelAndView.addObject("articlePage",articlePage);
         return modelAndView;
     }
@@ -39,7 +40,7 @@ public class MainController {
     @RequestMapping(value = "/page/{page}", method = RequestMethod.GET)
     public ModelAndView homeByPage(@PathVariable("page") int page) {
         ModelAndView modelAndView = new ModelAndView("index");
-        Page<Article> articlePage = adminService.getArticlesByPage(page, 5);
+        Page2<Article> articlePage = adminService.getArticles(page, 5);
         modelAndView.addObject("articlePage",articlePage);
         return modelAndView;
     }
