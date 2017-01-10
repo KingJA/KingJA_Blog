@@ -1,6 +1,7 @@
 package com.kingja.springmvc.dao;
 
 import com.kingja.springmvc.entity.Article;
+import com.kingja.springmvc.entity.Category;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,5 @@ import java.util.List;
 public interface AdminDao {
     List<Article> getArticlesByPage(@Param(value = "startRow") int startRow, @Param(value = "pageSize") int pageSize);
     List<Article> getArticles();
+    List<Category> getCategorys();
 }

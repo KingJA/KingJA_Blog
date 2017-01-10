@@ -9,10 +9,26 @@
     <!--resultType :对应的接口类的返回类型-->
 
     <select id="getArticlesByPage" resultType="com.kingja.springmvc.entity.Article">
-        select * from article ORDER BY createTime DESC limit #{startRow},#{pageSize}
+      select  article.id,category.name, article.title, article.content, article.readCount, article.commentCount, article.author,
+      article.createTime, article.updateTime FROM article
+      LEFT JOIN category
+      ON article.categoryId=category.id
+      ORDER BY article.createTime DESC
+      limit #{startRow},#{pageSize}
     </select>
     <select id="getArticles" resultType="com.kingja.springmvc.entity.Article">
-        select * from article ORDER BY createTime DESC
+       select  article.id,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+        article.createTime, article.updateTime FROM article
+        LEFT JOIN category
+        ON article.categoryId=category.id
+        ORDER BY article.createTime DESC
+    </select>
+
+    <select id="getCategorys" resultType="com.kingja.springmvc.entity.Category">
+        select category.id, category.`name`  AS category,COUNT(*) AS count FROM article
+        LEFT JOIN category ON article.categoryId=category.id
+        GROUP BY article.categoryId
+        ORDER BY category.createTime DESC
     </select>
 
 </mapper>

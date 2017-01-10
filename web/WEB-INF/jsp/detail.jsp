@@ -28,17 +28,18 @@
                 <p class="article-info">阅读数(<span class="f-14-blue">${article.readCount}</span>) 评论数(<span
                         class="f-14-blue">${article.commentCount}</span>)
                     ${article.createTime}</p>
-                <p class="article-tag">
+                <p class="article-category">
                     <i class="fa fa-tag fa-lg"></i>
-                    <span>${article.tag}</span>
+                    <span>${article.category}</span>
                 </p>
 
             </div>
+
             <div class="content-wrap" id="article">${article.content}</div>
 
 
         </div>
-        <div class="left-comment block"> <span class="side-title">评论(56)</span></div>
+        <div class="left-comment block"><span class="side-title">评论(56)</span></div>
     </div>
 
 
@@ -86,7 +87,7 @@
 
 
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="common/footer.jsp"></jsp:include>
 
 <script src="/js/jquery-3.1.1.js"></script>
 <script src="/js/markdown-it.js"></script>

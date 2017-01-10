@@ -74,6 +74,8 @@ nav {
 
 .col-w-3 {
     width: 30%;
+}.col-w-33 {
+    width: 33.333%;
 }
 
 .col-w-4 {

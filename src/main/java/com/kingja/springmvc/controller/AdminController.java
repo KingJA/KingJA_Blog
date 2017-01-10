@@ -1,7 +1,9 @@
 package com.kingja.springmvc.controller;
 
+import com.kingja.springmvc.dao.AdminDao;
 import com.kingja.springmvc.dao.UserDao;
 import com.kingja.springmvc.entity.Article;
+import com.kingja.springmvc.entity.Category;
 import com.kingja.springmvc.entity.JResult;
 import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.service.AdminService;
@@ -26,6 +28,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     UserDao userDao;
+    @Autowired
+    AdminDao adminDao;
 
     @Autowired
     AdminService adminService;
@@ -33,16 +37,18 @@ public class AdminController {
 
     /**
      * 登录页
+     *
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView main() {
-        ModelAndView modelAndView = new ModelAndView("login");
+        ModelAndView modelAndView = new ModelAndView("/admin/login");
         return modelAndView;
     }
 
     /**
      * 登录处理
+     *
      * @param name
      * @param password
      * @param session
@@ -53,10 +59,10 @@ public class AdminController {
     public JResult doLogin(@RequestParam("name") String name, @RequestParam("password") String password, HttpSession session) {
         JResult<Object> jResult = new JResult<Object>();
         List<User> users = userDao.checkAdmin(name, password);
-        if (users.size()> 0) {//登录成功
+        if (users.size() > 0) {//登录成功
             jResult.setResultCode(0).setResultText("登录成功");
             User user = users.get(0);
-            session.setAttribute("User",user);
+            session.setAttribute("User", user);
             logger.error(user.toString());
         } else {
             jResult.setResultCode(4).setResultText("用户名或密码错误，请重新登录");
@@ -67,26 +73,54 @@ public class AdminController {
 
     /**
      * 获取文章列表 首页
+     *
      * @return
      */
     @RequestMapping(value = "/article", method = RequestMethod.GET)
     public ModelAndView article() {
-        ModelAndView modelAndView = new ModelAndView("article");
+        ModelAndView modelAndView = new ModelAndView("/admin/article");
         Page<Article> articlePage = adminService.getArticlesByPage(1, 5);
-        modelAndView.addObject("articlePage",articlePage);
+        modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
 
     /**
      * 获取文章列表
+     *
      * @param page
      * @return
      */
     @RequestMapping(value = "/article/{page}", method = RequestMethod.GET)
     public ModelAndView articleByPage(@PathVariable("page") int page) {
-        ModelAndView modelAndView = new ModelAndView("article");
+        ModelAndView modelAndView = new ModelAndView("/admin/article");
         Page<Article> articlePage = adminService.getArticlesByPage(page, 5);
-        modelAndView.addObject("articlePage",articlePage);
+        modelAndView.addObject("articlePage", articlePage);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public ModelAndView account() {
+        ModelAndView modelAndView = new ModelAndView("/admin/account");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/drafts", method = RequestMethod.GET)
+    public ModelAndView drafts() {
+        ModelAndView modelAndView = new ModelAndView("/admin/drafts");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/comment", method = RequestMethod.GET)
+    public ModelAndView comment() {
+        ModelAndView modelAndView = new ModelAndView("/admin/comment");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/category", method = RequestMethod.GET)
+    public ModelAndView category() {
+        ModelAndView modelAndView = new ModelAndView("/admin/category");
+        List<Category> categorys = adminDao.getCategorys();
+        modelAndView.addObject("categorys",categorys);
         return modelAndView;
     }
 }

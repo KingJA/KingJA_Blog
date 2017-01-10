@@ -18,7 +18,7 @@
 <div id="top">
     <span>
         <input type="text" placeholder="Please input the title"  id="title" name="title">
-        <select id="tag" name="tag">
+        <select id="category" name="category">
             <option selected="selected" value="">--Select Tag--</option>
             <option value="Java">Java</option>
             <option value="Android">Android</option>
@@ -52,7 +52,7 @@
         $("#publish").click(function () {
             console.log("publish");
             var title = $("#title").val();
-            var tag = $("#tag").val();
+            var category = $("#category").val();
             var content = $("#text-input").val();
             $.ajax({
                 type: "POST",
@@ -60,7 +60,7 @@
                 data: {
                     "authorId": ${sessionScope.User.id},
                     "title": title,
-                    "tag": tag,
+                    "category": category,
                     "content": content
                 },
                 dataType: "json",

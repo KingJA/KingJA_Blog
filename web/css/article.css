@@ -63,27 +63,6 @@
     box-sizing: border-box;
 }
 
-.article-category {
-    /*border: 1px solid #5e5e5e;*/
-    float: left;
-    width: 15%;
-    box-sizing: border-box;
-}
-
-
-.article-category p {
-    font-size: 1.2em;
-    padding: 0.5em 0;
-    text-align: center;
-}
-
-.article-category .category {
-    background: #2a6496;
-}
-
-.article-category .date {
-    background: #eea236;
-}
 
 .title-wrap{
     border-bottom: 2px solid #cecece;

@@ -17,10 +17,11 @@
     <div class="control-wrap">
         <div class="control-nav">
             <ul>
-                <li><a class="control-nav-a" href="#">文章管理</a></li>
-                <li><a class="control-nav-a" href="#">账号管理</a></li>
-                <li><a class="control-nav-a" href="#">评论管理</a></li>
-                <li><a class="active control-nav-a" href="#">草稿箱</a></li>
+                <li><a class="control-nav-a" href="/admin/article">文章管理</a></li>
+                <li><a class="control-nav-a" href="/admin/account">账号管理</a></li>
+                <li><a class="control-nav-a" href="/admin/category">分类管理</a></li>
+                <li><a class="control-nav-a" href="/admin/comment">评论管理</a></li>
+                <li><a class="control-nav-a active" href="/admin/drafts">草稿箱</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -33,21 +34,21 @@
                     <th class="col-w-2">操作</th>
                 </tr>
                 <tr>
-                    <td class="td-title"><a href="#"> 关于高可用的系统</a><span>(2016-12-12 10:28)</span></td>
+                    <td class="t-left"><a href="#"> 关于高可用的系统</a><span>(2016-12-12 10:28)</span></td>
                     <td>0</td>
                     <td>0</td>
                     <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
 
                 </tr>
                 <tr>
-                    <td class="td-title"><a href="#"> 如何读懂并写出装逼的函数式代码</a><span>(2016-12-12 10:28)</span></td>
+                    <td class="t-left"><a href="#"> 如何读懂并写出装逼的函数式代码</a><span>(2016-12-12 10:28)</span></td>
                     <td>0</td>
                     <td>0</td>
                     <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
 
                 </tr>
                 <tr>
-                    <td class="td-title"><a href="#"> 什么是工程师文化？</a><span>(2016-12-12 10:28)</span></td>
+                    <td class="t-left"><a href="#"> 什么是工程师文化？</a><span>(2016-12-12 10:28)</span></td>
                     <td>0</td>
                     <td>0</td>
                     <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>

@@ -10,12 +10,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>管理员</title>
-    <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/admin.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="nav.jsp"></jsp:include>
+<jsp:include page="../common/nav.jsp"></jsp:include>
 
 <div class="container">
 
@@ -25,10 +24,11 @@
     <div class="control-wrap">
         <div class="control-nav">
             <ul class="control-ul">
-                <li><a class="active control-nav-a" href="#">文章管理</a></li>
-                <li><a class="control-nav-a" href="#">账号管理</a></li>
-                <li><a class="control-nav-a" href="#">评论管理</a></li>
-                <li><a class="control-nav-a" href="#">草稿箱</a></li>
+                <li><a class="control-nav-a active" href="/admin/article">文章管理</a></li>
+                <li><a class="control-nav-a" href="/admin/account">账号管理</a></li>
+                <li><a class="control-nav-a" href="/admin/category">分类管理</a></li>
+                <li><a class="control-nav-a" href="/admin/comment">评论管理</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts">草稿箱</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -43,7 +43,7 @@
                 <c:if test="${!empty articlePage.pageDatas}">
                     <c:forEach items="${articlePage.pageDatas}" var="article">
                         <tr>
-                            <td class="td-title"><a href="#">${article.title}</a><span>(${article.createTime})</span>
+                            <td class="t-left"><a href="#">${article.title}</a><span>(${article.createTime})</span>
                             </td>
                             <td>${article.readCount}</td>
                             <td>${article.commentCount}</td>
@@ -52,30 +52,6 @@
                     </c:forEach>
                 </c:if>
             </table>
-            <ul class="pagination">
-                <c:if test="${articlePage.hasPrevious}">
-                    <li>
-                        <a href="/article/${articlePage.previousPage}">&laquo;上一页</a>
-                    </li>
-                </c:if>
-
-                <c:forEach var="x" begin="${articlePage.pageStart}"
-                           end="${articlePage.pageEnd}">
-
-                    <c:if test="${articlePage.currentPage==x}">
-                        <li class="active"><a href="javascript:return false;">${x}</a></li>
-                    </c:if>
-                    <c:if test="${articlePage.currentPage!=x}">
-                        <li><a href="/article/${x}">${x}</a></li>
-                    </c:if>
-                </c:forEach>
-
-
-                <c:if test="${articlePage.hasNext}">
-                    <li><a href="/article/${articlePage.nextPage}">下一页&raquo;</a>
-                    </li>
-                </c:if>
-            </ul>
 
         </div>
     </div>
@@ -83,6 +59,6 @@
 </div>
 
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

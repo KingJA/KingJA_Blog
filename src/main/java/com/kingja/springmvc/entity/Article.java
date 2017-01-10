@@ -13,7 +13,7 @@ import java.util.Date;
 public class Article {
     private long id;
     private long authorId;
-    private String tag;
+    private String category;
     private String title;
     private String content;
     private int readCount;
@@ -62,12 +62,12 @@ public class Article {
         this.id = id;
     }
 
-    public String getTag() {
-        return tag;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getTitle() {
@@ -100,7 +100,7 @@ public class Article {
         return "Article{" +
                 "id=" + id +
                 ", authorId=" + authorId +
-                ", tag='" + tag + '\'' +
+                ", category='" + category + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", readCount=" + readCount +

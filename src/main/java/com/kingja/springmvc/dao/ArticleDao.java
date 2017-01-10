@@ -17,7 +17,6 @@ import java.util.List;
 @Repository
 public interface ArticleDao {
 
-    List<User> checkAdmin(@Param(value = "name") String name, @Param(value = "password") String password);
 
     int publishArticle(SaveArticle alticle);
 

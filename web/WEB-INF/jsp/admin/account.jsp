@@ -3,10 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/icon.jpg">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>管理员</title>
     <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
     <link href="/css/admin.css" rel="stylesheet">
@@ -21,36 +17,33 @@
     <div class="control-wrap">
         <div class="control-nav">
             <ul>
-                <li><a class="control-nav-a" href="#">文章管理</a></li>
-                <li><a class="control-nav-a" href="#">账号管理</a></li>
-                <li><a class="active control-nav-a" href="#">评论管理</a></li>
-                <li><a class="control-nav-a" href="#">草稿箱</a></li>
+                <li><a class="control-nav-a" href="/admin/article">文章管理</a></li>
+                <li><a class="control-nav-a active" href="/admin/account">账号管理</a></li>
+                <li><a class="control-nav-a" href="/admin/category">分类管理</a></li>
+                <li><a class="control-nav-a" href="/admin/comment">评论管理</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts">草稿箱</a></li>
             </ul>
         </div>
         <div class="control-display">
 
             <table cellspacing="0">
                 <tr class="th-title">
-                    <th class="col-w-3">评论文章</th>
-                    <th class="col-w-3">评论内容</th>
-                    <th class="col-w-1">评论人</th>
-                    <th class="col-w-2">评论时间</th>
-                    <th class="col-w-1">操作</th>
+                    <th class="col-w-2_5">用户名</th>
+                    <th class="col-w-2_5">角色</th>
+                    <th class="col-w-2_5">创建时间</th>
+                    <th class="col-w-2_5">操作</th>
                 </tr>
                 <tr>
-                    <td class="td-title">性能测试应该怎么做？</td>
-                    <td class="td-title">感谢分享</td>
-                    <td>Mike</td>
+                    <td >Mike</td>
+                    <td>管理员</td>
                     <td>2016-01-15 10:25:40</td>
-                    <td><a href="#">删除</a></td>
+                    <td><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a>&nbsp;|&nbsp; <a href="#">设置权限</a></td>
 
-                </tr>
-                <tr>
-                    <td class="td-title">性能测试应该怎么做？</td>
-                    <td class="td-title">感谢分享</td>
-                    <td>Lili</td>
-                    <td>2016-01-15 10:25:40</td>
-                    <td><a href="#">删除</a></td>
+                </tr>  <tr>
+                    <td >Mike</td>
+                    <td>管理员</td>
+                <td>2016-01-15 10:25:40</td>
+                    <td><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a>&nbsp;|&nbsp; <a href="#">设置权限</a></td>
 
                 </tr>
             </table>

@@ -9,7 +9,7 @@ i {
 }
 
 .control-nav {
-    height: 500px;
+    min-height: 500px;
     width: 20%;
     border: 1px solid #2a6496;
     float: left;
@@ -18,7 +18,7 @@ i {
 
 .control-display {
     padding:12px;
-    height: 500px;
+    min-height: 500px;
     width: 80%;
     border: 1px solid #2a6496;
     float: right;
@@ -63,9 +63,7 @@ tr:nth-child(even) {
     background: #e7e7e7;
 }
 
-
 table{
-
     width: 100%;
 }
 td{
@@ -76,7 +74,7 @@ td{
 tr:last-child td {
     border-bottom: none;
 }
-.td-title{
+.t-left {
     text-align:left;
     text-indent: 10px;
 }
@@ -88,7 +86,7 @@ table a:hover{
     color: #2a6496;
     text-decoration: underline;
 }
-.td-title span {
+.t-left span {
     color: #999;
     margin-left: 10px;
 }

@@ -18,25 +18,12 @@
 
 <div class="container">
     <div class="content block">
-       <%-- <div class="article">
-            <div class="article-category">
-                <p class="category">Java</p>
-                <p class="date">2016-10-12</p>
 
-            </div>
-            <div class="article-content">
-                <div><a class="article-title" href="#">如何读懂并写出装逼的函数式代码</a></div>
-                <div class="article-param">
-                    <div class="read-count f-14-gray">阅读(201525)</div>
-                    <div class="comment-count f-14-gray">评论数(201525)</div>
-                </div>
-            </div>
-        </div>--%>
         <c:if test="${!empty articlePage.pageDatas}">
             <c:forEach items="${articlePage.pageDatas}" var="article">
                 <div class="article">
                     <div class="article-category">
-                        <p class="category">${article.tag}</p>
+                        <p class="category">${article.category}</p>
                         <p class="date">${article.updateTime}</p>
 
                     </div>
