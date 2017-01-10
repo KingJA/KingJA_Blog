@@ -7,7 +7,7 @@
     box-sizing: border-box;
     width: 75%;
     border: 1px solid #5e5e5e;
-    height: 800px;
+    min-height: 800px;
     float: left;
 }
 

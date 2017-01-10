@@ -110,7 +110,17 @@ public class Page2<T> {
 
 
     public List<T> getPageDatas() {
-        return getAllDatas().subList(getStartRow(),getStartRow()+getPageSize());
+        return getAllDatas().subList(getStartRow(),getEndRow());
+    }
+
+    private int getEndRow() {
+        int endRow;
+        if (getStartRow() + getPageSize() >= getTotelItems()) {
+            endRow=getTotelItems();
+        }else{
+            endRow=getStartRow() + getPageSize();
+        }
+        return endRow;
     }
 
 

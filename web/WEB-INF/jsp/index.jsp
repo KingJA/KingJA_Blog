@@ -53,31 +53,35 @@
                 </div>
             </c:forEach>
         </c:if>
-
-           <ul class="pagination">
-               <c:if test="${articlePage.hasPrevious}">
-                   <li>
-                       <a href="/article/${articlePage.previousPage}">&laquo;上一页</a>
-                   </li>
-               </c:if>
-
-               <c:forEach var="x" begin="${articlePage.pageStart}"
-                          end="${articlePage.pageEnd}">
-
-                   <c:if test="${articlePage.currentPage==x}">
-                       <li class="active"><a href="javascript:return false;">${x}</a></li>
+           <div>
+               <ul class="pagination">
+                   <c:if test="${articlePage.hasPrevious}">
+                       <li>
+                           <a href="/page/${articlePage.previousPage}">&laquo;上一页</a>
+                       </li>
                    </c:if>
-                   <c:if test="${articlePage.currentPage!=x}">
-                       <li><a href="/article/${x}">${x}</a></li>
+
+                   <c:forEach var="x" begin="${articlePage.pageStart}"
+                              end="${articlePage.pageEnd}">
+
+                       <c:if test="${articlePage.currentPage==x}">
+                           <li class="active"><a href="javascript:return false;">${x}</a></li>
+                       </c:if>
+                       <c:if test="${articlePage.currentPage!=x}">
+                           <li><a href="/page/${x}">${x}</a></li>
+                       </c:if>
+                   </c:forEach>
+
+
+                   <c:if test="${articlePage.hasNext}">
+                       <li><a href="/page/${articlePage.nextPage}">下一页&raquo;</a>
+                       </li>
                    </c:if>
-               </c:forEach>
+               </ul>
+
+           </div>
 
 
-               <c:if test="${articlePage.hasNext}">
-                   <li><a href="/article/${articlePage.nextPage}">下一页&raquo;</a>
-                   </li>
-               </c:if>
-           </ul>
 
     </div>
 
