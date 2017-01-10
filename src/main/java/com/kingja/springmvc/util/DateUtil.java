@@ -57,4 +57,39 @@ public class DateUtil {
 
 		return df.format(date);
 	}
+
+	public static String StrTime2StrTime(String from,String fromFormat, String toFormat) {
+		Date fromDate = StrToDate(from, fromFormat);
+		return DateToStr(fromDate,toFormat);
+	}
+
+	/**
+	 * 日期转换成字符串
+	 * @param date
+	 * @return str
+	 */
+	public static String DateToStr(Date date,String formatStr) {
+
+		SimpleDateFormat format = new SimpleDateFormat(formatStr);
+		String str = format.format(date);
+		return str;
+	}
+
+	/**
+	 * 字符串转换成日期
+	 * @param str
+	 * @return date
+	 */
+	public static Date StrToDate(String str,String formatStr) {
+
+		SimpleDateFormat format = new SimpleDateFormat(formatStr);
+		Date date = null;
+		try {
+			date = format.parse(str);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
+
 }

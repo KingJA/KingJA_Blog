@@ -1,0 +1,30 @@
+package com.kingja.springmvc.entity;
+
+import com.kingja.springmvc.util.DateUtil;
+
+/**
+ * Description：TODO
+ * Create Time：2017/1/10 16:02
+ * Author:KingJA
+ * Email:kingjavip@gmail.com
+ */
+public class Month {
+    private String month;
+    private int count;
+
+    public String getMonth() {
+        return DateUtil.StrTime2StrTime(month,"yyyy-MM","yyyy年M月");
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+}

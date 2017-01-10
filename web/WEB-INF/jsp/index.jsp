@@ -90,16 +90,20 @@
         <div class="hot block">
             <span class="side-title">热门文章</span>
             <ul class="side-ul">
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
+                <c:if test="${!empty hotArticles}">
+                    <c:forEach items="${hotArticles}" var="hotArticle">
+                        <li class="side-li"><a href="/article/detail/${hotArticle.id}" class="side-a">${hotArticle.title}</a></li>
+
+                    </c:forEach>
+                </c:if>
+
+
             </ul>
         </div>
         <div class="hot block">
             <span class="side-title">分类文章</span>
             <ul class="side-ul">
+
                 <li class="side-li"><a href="#" class="side-a">Java(5)</a></li>
                 <li class="side-li"><a href="#" class="side-a">Android(5)</a></li>
                 <li class="side-li"><a href="#" class="side-a">Html(8)</a></li>
@@ -110,11 +114,11 @@
         <div class="hot block">
             <span class="side-title">时间轴</span>
             <ul class="side-ul">
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
+                <c:if test="${!empty months}">
+                    <c:forEach items="${months}" var="month">
+                        <li class="side-li"><a href="#" class="side-a">${month.month}(${month.count})</a></li>
+                    </c:forEach>
+                </c:if>
             </ul>
         </div>
 
