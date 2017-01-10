@@ -2,7 +2,6 @@
 .left-wrap {
     box-sizing: border-box;
     width: 75%;
-    /*height: 800px;*/
     float: left;
 }
 
@@ -10,7 +9,6 @@
 .side {
     padding-right: 12px;
     padding-left: 12px;
-    /*border: 1px solid #5e5e5e;*/
     float: right;
     width: 25%;
     box-sizing: border-box;

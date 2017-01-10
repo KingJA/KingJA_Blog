@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="left-wrap ">
-        <div class="content block">
+        <div class="block">
 
             <div class="title-wrap">
                 <p class="article-title">${article.title}</p>
