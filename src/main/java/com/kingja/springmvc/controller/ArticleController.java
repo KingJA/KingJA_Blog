@@ -1,11 +1,13 @@
 package com.kingja.springmvc.controller;
 
 import com.kingja.springmvc.dao.ArticleDao;
+import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.SaveArticle;
 import com.kingja.springmvc.entity.JResult;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,6 +45,20 @@ public class ArticleController {
             jResult.setResultCode(4).setResultText("发布失败");
         }
         return jResult;
+    }
+
+    /**
+     * 文章详情页
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable("id") long id) {
+        ModelAndView modelAndView = new ModelAndView("detail");
+        Article article = articleDao.getArticleById(id);
+        logger.error(article.getContent());
+        modelAndView.addObject("article",article);
+        return modelAndView;
     }
 
 

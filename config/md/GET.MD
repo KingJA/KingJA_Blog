@@ -4,3 +4,4 @@
 * .input:focus input获取焦点时候CSS
 * cursor: pointer;鼠标移过变手势
 * border-style: none;取消input原来样式
+* JS中使用EL表达式"${person.name}"，加双引号

@@ -20,7 +20,7 @@
 <div class="container">
 
     <div class="admin-logo">${sessionScope.User.nick}
-        <p><a href="/saveArticle/edit">发布新文章</a></p>
+        <p><a href="/article/edit">发布新文章</a></p>
     </div>
     <div class="control-wrap">
         <div class="control-nav">

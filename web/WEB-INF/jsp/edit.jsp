@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <title>Markdown编辑器</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/plug/highlight/default.css" rel="stylesheet">
     <link href="/css/edit.css" rel="stylesheet">
     </link>
 </head>
@@ -40,8 +41,10 @@
     </div>
 </div>
 
-<script src="/js/markdown.js"></script>
+<script src="/js/markdown2.js"></script>
 <script src="/js/jquery-3.1.1.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/plug/highlight/highlight.pack.js"></script>
 <script src="/js/main.js"></script>
 <script>
     $(function(){
@@ -53,7 +56,7 @@
             var content = $("#text-input").val();
             $.ajax({
                 type: "POST",
-                url: "/saveArticle/doPublish",
+                url: "/article/doPublish",
                 data: {
                     "authorId": ${sessionScope.User.id},
                     "title": title,
@@ -63,7 +66,7 @@
                 dataType: "json",
                 success: function (retult) {
                     if (retult.resultCode === 0) {//登录成功，跳转后台页面
-                        window.location.href = "/admin/saveArticle";
+                        window.location.href = "/admin/article";
                     } else {//登录失败，重新登录
                         alert(retult.resultText);
                     }

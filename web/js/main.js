@@ -6,12 +6,29 @@ $(document).ready(new function () {
     var content_wrap = document.getElementById("content_wrap");
     var input =  $("#text-input");
     var preview =  $("#preview");
+    hljs.initHighlightingOnLoad();
+    var md = window.markdownit({
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        }
+    });
+    // var content = $("#article").text();
+    // $("#article").html(md.render(content));
+
+
     init();
     function Editor(input, preview) {
         this.update = function () {
-            preview.innerHTML = markdown.toHTML(input.value);
+            preview.innerHTML = md.render(input.value);
         };
         input.editor = this;
+
         this.update();
     }
 

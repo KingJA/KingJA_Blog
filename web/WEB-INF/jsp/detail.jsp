@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
+    <link href="/plug/highlight/default.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/saveArticle.css" rel="stylesheet">
+    <link href="/css/article.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
@@ -20,21 +21,19 @@
         <div class="content block">
 
             <div class="title-wrap">
-                <p class="saveArticle-title">如何读懂并写出装逼的函数式代码</p>
+                <p class="article-title">${article.title}</p>
 
 
-                <p class="saveArticle-info">阅读数(<span class="f-14-blue">2654</span>) 评论数(<span class="f-14-blue">54</span>)
-                    2016-10-12 12:22</p>
-                <p class="saveArticle-tag">
+                <p class="article-info">阅读数(<span class="f-14-blue">${article.readCount}</span>) 评论数(<span class="f-14-blue">${article.commentCount}</span>)
+                    ${article.updateTime}</p>
+                <p class="article-tag">
                     <i class="fa fa-tag fa-lg"></i>
-                    <span>Android</span>
-                    <span>Java</span>
-                    <span>性能优化</span>
+                    <span>${article.tag}</span>
                 </p>
 
             </div>
-            <div class="content-wrap" id="saveArticle">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quisquam.
+            <div class="content-wrap" id="article">
+                ${article.content}
             </div>
 
 
@@ -84,15 +83,24 @@
 <jsp:include page="footer.jsp"></jsp:include>
 
 <script src="/js/jquery-3.1.1.js"></script>
-<script src="/js/markdown.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/plug/highlight/highlight.pack.js"></script>
 <script>
     $(function () {
-        $.ajax({
-            url: "temp.md", success: function (result) {
-                $("#saveArticle").html(markdown.toHTML(result));
+        hljs.initHighlightingOnLoad();
+        var md = window.markdownit({
+            highlight: function (str, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    try {
+                        return hljs.highlight(lang, str).value;
+                    } catch (__) {}
+                }
+
+                return ''; // use external default escaping
             }
         });
-
+        var content = $("#article").text();
+        $("#article").html(md.render(content));
     });
 </script>
 </body>

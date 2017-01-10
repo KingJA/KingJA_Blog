@@ -1,5 +1,6 @@
 package com.kingja.springmvc.dao;
 
+import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.SaveArticle;
 import com.kingja.springmvc.entity.User;
 import org.apache.ibatis.annotations.Param;
@@ -19,4 +20,6 @@ public interface ArticleDao {
     List<User> checkAdmin(@Param(value = "name") String name, @Param(value = "password") String password);
 
     int publishArticle(SaveArticle alticle);
+
+    Article getArticleById(@Param(value = "id")long id);
 }
