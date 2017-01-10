@@ -1,9 +1,11 @@
 package com.kingja.springmvc.controller;
 
 import com.kingja.springmvc.dao.ArticleDao;
+import com.kingja.springmvc.dao.CommonDao;
 import com.kingja.springmvc.entity.Article;
-import com.kingja.springmvc.entity.SaveArticle;
 import com.kingja.springmvc.entity.JResult;
+import com.kingja.springmvc.entity.Month;
+import com.kingja.springmvc.entity.SaveArticle;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Description：管理员
@@ -24,6 +28,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class ArticleController {
     @Autowired
     ArticleDao articleDao;
+
+    @Autowired
+    CommonDao commonDao;
 
     private static Logger logger = Logger.getLogger(ArticleController.class);
 
@@ -53,11 +60,20 @@ public class ArticleController {
      * @return
      */
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public ModelAndView edit(@PathVariable("id") long id) {
+    public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView modelAndView = new ModelAndView("detail");
         Article article = articleDao.getArticleById(id);
+        //1.获取文章详情
         logger.error(article.getContent());
         modelAndView.addObject("article",article);
+
+        //2.获取热门文章列表
+        List<Article> hotArticles = commonDao.getHotArticle(5);
+        modelAndView.addObject("hotArticles",hotArticles);
+
+        //3.获取月份列表
+        List<Month> months = commonDao.getMonth(5);
+        modelAndView.addObject("months",months);
         return modelAndView;
     }
 

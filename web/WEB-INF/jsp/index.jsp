@@ -43,8 +43,9 @@
                     <div class="article-content">
                         <div><a class="article-title" href="/article/detail/${article.id}">${article.title}</a></div>
                         <div class="article-param">
-                            <div class="read-count f-14-gray">阅读(${article.readCount})</div>
+                            <div class="create-time f-14-gray">${article.createTime}</div>
                             <div class="comment-count f-14-gray">评论数(${article.commentCount})</div>
+                            <div class="read-count f-14-gray">阅读(${article.readCount})</div>
 
                         </div>
 
@@ -96,8 +97,6 @@
 
                     </c:forEach>
                 </c:if>
-
-
             </ul>
         </div>
         <div class="hot block">

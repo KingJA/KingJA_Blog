@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,21 +25,20 @@
                 <p class="article-title">${article.title}</p>
 
 
-                <p class="article-info">阅读数(<span class="f-14-blue">${article.readCount}</span>) 评论数(<span class="f-14-blue">${article.commentCount}</span>)
-                    ${article.updateTime}</p>
+                <p class="article-info">阅读数(<span class="f-14-blue">${article.readCount}</span>) 评论数(<span
+                        class="f-14-blue">${article.commentCount}</span>)
+                    ${article.createTime}</p>
                 <p class="article-tag">
                     <i class="fa fa-tag fa-lg"></i>
                     <span>${article.tag}</span>
                 </p>
 
             </div>
-            <div class="content-wrap" id="article">
-                ${article.content}
-            </div>
+            <div class="content-wrap" id="article">${article.content}</div>
 
 
         </div>
-        <div class="left-comment block"> 评论区</div>
+        <div class="left-comment block"> <span class="side-title">评论(56)</span></div>
     </div>
 
 
@@ -46,13 +46,17 @@
 
         <div class="hot block">
             <span class="side-title">热门文章</span>
-            <ul class="side-ul">
-                <li class="side-li"><a href="#" class="side-a">如何读懂并写出装逼的函数式代码</a></li>
-                <li class="side-li"><a href="#" class="side-a">让我们来谈谈分工</a></li>
-                <li class="side-li"><a href="#" class="side-a">CUCKOO FILTER：设计与实现</a></li>
-                <li class="side-li"><a href="#" class="side-a">性能测试应该怎么做？</a></li>
-                <li class="side-li"><a href="#" class="side-a">为什么我不在微信公众号上写文章</a></li>
-            </ul>
+
+            <c:if test="${!empty hotArticles}">
+                <ul class="side-ul">
+                    <c:forEach items="${hotArticles}" var="hotArticle">
+                        <li class="side-li"><a href="/article/detail/${hotArticle.id}"
+                                               class="side-a">${hotArticle.title}</a></li>
+
+                    </c:forEach>
+                </ul>
+            </c:if>
+
         </div>
         <div class="hot block">
             <span class="side-title">分类文章</span>
@@ -66,13 +70,15 @@
         </div>
         <div class="hot block">
             <span class="side-title">时间轴</span>
-            <ul class="side-ul">
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">2017年一月(5)</a></li>
-            </ul>
+
+            <c:if test="${!empty months}">
+                <ul class="side-ul">
+                    <c:forEach items="${months}" var="month">
+                        <li class="side-li"><a href="#" class="side-a">${month.month}(${month.count})</a></li>
+                    </c:forEach>
+                </ul>
+            </c:if>
+
         </div>
 
 
@@ -93,7 +99,8 @@
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return hljs.highlight(lang, str).value;
-                    } catch (__) {}
+                    } catch (__) {
+                    }
                 }
 
                 return ''; // use external default escaping
