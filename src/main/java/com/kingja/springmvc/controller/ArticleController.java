@@ -94,6 +94,19 @@ public class ArticleController {
         return jResult;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/setTop", method = RequestMethod.POST)
+    public JResult setTop(@RequestParam("id") long id,@RequestParam("top") long top) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = articleDao.setTop(id,top);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
+
     /**
      * 文章详情页
      *

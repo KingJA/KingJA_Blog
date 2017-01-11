@@ -7,7 +7,6 @@ import com.kingja.springmvc.entity.Category;
 import com.kingja.springmvc.entity.JResult;
 import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.service.AdminService;
-import com.kingja.springmvc.util.Page;
 import com.kingja.springmvc.util.Page2;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,8 +78,9 @@ public class AdminController {
      */
     @RequestMapping(value = "/article", method = RequestMethod.GET)
     public ModelAndView article() {
+        logger.error("article");
         ModelAndView modelAndView = new ModelAndView("/admin/article");
-        Page<Article> articlePage = adminService.getArticlesByPage(1, 5);
+        Page2<Article> articlePage = adminService.getArticles(1, 5);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
@@ -93,6 +93,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/article/{page}", method = RequestMethod.GET)
     public ModelAndView articleByPage(@PathVariable("page") int page) {
+        logger.error("articleByPage");
         ModelAndView modelAndView = new ModelAndView("/admin/article");
         Page2<Article> articlePage = adminService.getArticles(page, 5);
         modelAndView.addObject("articlePage", articlePage);
@@ -123,7 +124,22 @@ public class AdminController {
     public ModelAndView category() {
         ModelAndView modelAndView = new ModelAndView("/admin/category");
         List<Category> categorys = adminDao.getAdminCategorys();
+        logger.error("categorys数量："+categorys.size());
         modelAndView.addObject("categorys",categorys);
         return modelAndView;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
+    public JResult addCategory(@RequestParam("name") String name) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = adminDao.addCategory(name);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
     }
 }

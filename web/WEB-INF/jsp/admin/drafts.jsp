@@ -30,20 +30,20 @@
             <table cellspacing="0">
                 <tr class="th-title">
                     <th class="col-w-5">标题</th>
-                    <th class="col-w-1">修改时间</th>
+                    <th class="col-w-2">修改时间</th>
                     <th class="col-w-1">阅读数</th>
                     <th class="col-w-1">评论数</th>
-                    <th class="col-w-2">操作</th>
+                    <th class="col-w-1">操作</th>
                 </tr>
                 <c:if test="${!empty articlePage.pageDatas}">
                     <c:forEach items="${articlePage.pageDatas}" var="article">
                         <tr>
                             <td class="t-left"><a href="#">${article.title}</a><span>(${article.createTime})</span>
                             </td>
-                            <td>${article.updateTime}</td>
+                            <td>${article.fullUpdateTime}</td>
                             <td>${article.readCount}</td>
                             <td>${article.commentCount}</td>
-                            <td><a href="/article/edit/${article.id}">编辑</a>&nbsp;|&nbsp;<a href="javascript:void(0);"
+                            <td><a href="/article/edit/${article.id}">编辑</a>|<a href="javascript:void(0);"
                                                                                             onclick="doDelete(${article.id})">删除</a>
                             </td>
                         </tr>

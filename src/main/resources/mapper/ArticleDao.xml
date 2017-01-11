@@ -29,5 +29,9 @@
 
     </select>
 
+    <update id="setTop">
+        UPDATE article SET top=#{top} WHERE id=#{id}
+    </update>
+
 
 </mapper>

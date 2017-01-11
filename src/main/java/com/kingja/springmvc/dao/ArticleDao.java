@@ -19,4 +19,5 @@ public interface ArticleDao {
     int editArticle(SaveArticle alticle);
     int deleteArticle(@Param(value = "id")long id);
     Article getArticleById(@Param(value = "id")long id);
+    int setTop(@Param(value = "id") long id,@Param(value = "top") long top);
 }

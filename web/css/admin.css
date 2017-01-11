@@ -74,7 +74,10 @@ td{
 tr:last-child td {
     border-bottom: none;
 }
-
+.none-line-a{
+    color: #2a6496;
+    text-decoration: none;
+}
 table a{
     color: #2a6496;
     text-decoration: none;
@@ -98,6 +101,16 @@ th{
 }
 tr:not(.th-title):hover {
     background: #eee8b1;
+}
+table{
+    margin-bottom: 1em;
+}
+
+
+/*category*/
+#category-name{
+    padding:0.2em 0;
+    margin-right: 1em;
 }
 
 

@@ -20,4 +20,7 @@ public interface AdminDao {
     List<Category> getAdminCategorys();
     List<Category> getCategorys();
     List<Article> getDraftsArticles();
+
+    int addCategory(@Param(value = "name") String name);
+
 }

@@ -44,6 +44,11 @@
                 </c:if>
             </table>
 
+            <div>
+                <input type="text" name="name" id="category-name"><a href="javascript:void(0); " class="none-line-a" onclick="addCategory()">添加分类</a>
+
+            </div>
+
 
         </div>
     </div>
@@ -60,5 +65,29 @@
 
 
 </footer>
+<script src="/js/jquery-3.1.1.js"></script>
+<script>
+
+    function addCategory() {
+        var name=$("#category-name").val();
+        $.ajax({
+            type: "POST",
+            url: "/admin/addCategory",
+            data: {
+                name:name
+            },
+            dataType: "json",
+            success: function (retult) {
+                if(retult.resultCode===0){
+                    window.location.reload();
+                } else {
+                    alert(retult.resultText);
+                }
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -47,8 +47,18 @@
                             </td>
                             <td>${article.readCount}</td>
                             <td>${article.commentCount}</td>
-                            <td><a href="/article/edit/${article.id}">编辑</a>&nbsp;|&nbsp;<a href="#">置顶</a>&nbsp;|&nbsp;
-                                <a href="javascript:void(0);" onclick="doDelete(${article.id})">删除</a></td>
+                            <td><a href="/article/edit/${article.id}">编辑</a>|
+                                <c:if test="${article.top==0}">
+                                    <a href="javascript:void(0);" onclick="setTop(${article.id},1)">置顶</a>
+                                </c:if>
+
+                                <c:if test="${article.top==1}">
+                                    <a href="javascript:void(0);" onclick="setTop(${article.id},0)">取消置顶</a>
+                                </c:if>
+
+
+
+                                |<a href="javascript:void(0);" onclick="doDelete(${article.id})">删除</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
@@ -66,10 +76,33 @@
         function doDelete(id) {
             $.ajax({
                         type: "POST",
-                        url: "/article/doDelete/",
+                        url: "/article/doDelete",
                         dataType: "json",
                         data: {
                             id: id
+                        },
+                        success: function (result) {
+                            if (result.resultCode === 0) {
+                                window.location.reload();
+                            } else {
+                                alert(result.resultText);
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    }
+            )
+        }
+
+        function setTop(id,ifTop) {
+            $.ajax({
+                        type: "POST",
+                        url: "/article/setTop",
+                        dataType: "json",
+                        data: {
+                            id: id,
+                            top: ifTop
                         },
                         success: function (result) {
                             if (result.resultCode === 0) {

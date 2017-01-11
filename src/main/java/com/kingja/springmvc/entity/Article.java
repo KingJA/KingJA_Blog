@@ -18,6 +18,16 @@ public class Article {
     private String title;
     private String content;
     private int readCount;
+
+    public int getTop() {
+        return top;
+    }
+
+    public void setTop(int top) {
+        this.top = top;
+    }
+
+    private int top;
     private int commentCount;
     private Date createTime;
 
@@ -47,6 +57,9 @@ public class Article {
 
     public String getUpdateTime() {
         return DateUtil.getYearDay(updateTime);
+    }
+    public String getFullUpdateTime() {
+        return DateUtil.getDateTime(updateTime);
     }
 
     public void setUpdateTime(Date updateTime) {

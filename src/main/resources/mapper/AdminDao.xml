@@ -9,32 +9,32 @@
     <!--resultType :对应的接口类的返回类型-->
 
     <select id="getAdminArticlesByPage" resultType="com.kingja.springmvc.entity.Article">
-      select  article.id,category.name, article.title, article.content, article.readCount, article.commentCount, article.author,
+      select  article.id,article.top,category.name, article.title, article.content, article.readCount, article.commentCount, article.author,
       article.createTime, article.updateTime FROM article
       LEFT JOIN category
       ON article.categoryId=category.id
       WHERE article.display=1
-      ORDER BY article.createTime DESC
+      ORDER BY top DESC ,createTime DESC
       limit #{startRow},#{pageSize}
     </select>
 
 
     <select id="getAdminArticles" resultType="com.kingja.springmvc.entity.Article">
-       select  article.id,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+       select  article.id,article.top,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
         article.createTime, article.updateTime FROM article
         LEFT JOIN category
         ON article.categoryId=category.id
         WHERE article.display=1
-        ORDER BY article.createTime DESC
+        ORDER BY top DESC ,createTime DESC
     </select>
 
     <select id="getDraftsArticles" resultType="com.kingja.springmvc.entity.Article">
-        select  article.id,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+        select  article.id,article.top,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
         article.createTime, article.updateTime FROM article
         LEFT JOIN category
         ON article.categoryId=category.id
         WHERE article.display=0
-        ORDER BY article.createTime DESC
+        ORDER BY top DESC,createTime DESC
     </select>
 
     <select id="getAdminCategorys" resultType="com.kingja.springmvc.entity.Category">
@@ -49,5 +49,10 @@
         SELECT id,name from category WHERE name !="" ORDER BY createTime DESC
 
     </select>
+
+    <insert id="addCategory" >
+        INSERT INTO category (name) VALUES (#{name})
+    </insert>
+
 
 </mapper>

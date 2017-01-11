@@ -8,7 +8,7 @@ import java.util.Date;
 public class DateUtil {
 	public static String getDateTime(Object date){
 		if(date==null) return "";
-		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return f.format(date);
 	}
 	public static String getYearDay(Object date){
@@ -18,7 +18,7 @@ public class DateUtil {
 	}
 	public static String getTimeTip(String time) {
 		String result = "";
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d HH:mm:ss");
 		long postTime = 0;
 		try {
 			postTime = sdf.parse(time).getTime();
