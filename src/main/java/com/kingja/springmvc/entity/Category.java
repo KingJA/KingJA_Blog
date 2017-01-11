@@ -31,4 +31,13 @@ public class Category {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", count=" + count +
+                '}';
+    }
 }

@@ -7,26 +7,22 @@ package com.kingja.springmvc.entity;
  * Email:kingjavip@gmail.com
  */
 public class SaveArticle {
+
+
     private long id;
     private long authorId;
-    private String tag;
+    private long categoryId;
     private String title;
     private String content;
+    private int display;
 
-    public long getId() {
-        return id;
+
+    public long getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getTitle() {
@@ -45,15 +41,12 @@ public class SaveArticle {
         this.content = content;
     }
 
+    public long getId() {
+        return id;
+    }
 
-    @Override
-    public String toString() {
-        return "SaveArticle{" +
-                "id=" + id +
-                ", tag='" + tag + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getAuthorId() {
@@ -62,5 +55,13 @@ public class SaveArticle {
 
     public void setAuthorId(long authorId) {
         this.authorId = authorId;
+    }
+
+    public int getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(int display) {
+        this.display = display;
     }
 }

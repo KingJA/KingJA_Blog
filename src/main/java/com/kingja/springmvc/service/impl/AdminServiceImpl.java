@@ -29,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
         page.setCurrentPage(currentPage);
         page.setPageSize(pageSize);
         page.setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE);
-        List<Article> articles = adminDao.getArticlesByPage(page.getStartRow(), pageSize);
+        List<Article> articles = adminDao.getAdminArticlesByPage(page.getStartRow(), pageSize);
         logger.error("Result articles:" + articles.toString());
         page.setPageDatas(articles);
         page.setTotelItems(articles.size());
@@ -37,7 +37,16 @@ public class AdminServiceImpl implements AdminService {
     }
 
     public Page2<Article> getArticles(int currentPage, int pageSize) {
-        List<Article> articles = adminDao.getArticles();
+        List<Article> articles = adminDao.getAdminArticles();
+        Page2<Article> page2 = new Page2<Article>().setCurrentPage(currentPage)
+                .setPageSize(pageSize)
+                .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
+                .setAllDatas(articles);
+        return page2;
+    }
+
+    public Page2<Article> getDraftsArticles(int currentPage, int pageSize) {
+        List<Article> articles = adminDao.getDraftsArticles();
         Page2<Article> page2 = new Page2<Article>().setCurrentPage(currentPage)
                 .setPageSize(pageSize)
                 .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)

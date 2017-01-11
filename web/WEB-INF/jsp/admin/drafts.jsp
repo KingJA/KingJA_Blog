@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/admin.css?v=1" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
 </head>
 <body>
@@ -28,32 +29,26 @@
 
             <table cellspacing="0">
                 <tr class="th-title">
-                    <th class="col-w-6">标题</th>
+                    <th class="col-w-5">标题</th>
+                    <th class="col-w-1">修改时间</th>
                     <th class="col-w-1">阅读数</th>
                     <th class="col-w-1">评论数</th>
                     <th class="col-w-2">操作</th>
                 </tr>
-                <tr>
-                    <td class="t-left"><a href="#"> 关于高可用的系统</a><span>(2016-12-12 10:28)</span></td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
-
-                </tr>
-                <tr>
-                    <td class="t-left"><a href="#"> 如何读懂并写出装逼的函数式代码</a><span>(2016-12-12 10:28)</span></td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
-
-                </tr>
-                <tr>
-                    <td class="t-left"><a href="#"> 什么是工程师文化？</a><span>(2016-12-12 10:28)</span></td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
-
-                </tr>
+                <c:if test="${!empty articlePage.pageDatas}">
+                    <c:forEach items="${articlePage.pageDatas}" var="article">
+                        <tr>
+                            <td class="t-left"><a href="#">${article.title}</a><span>(${article.createTime})</span>
+                            </td>
+                            <td>${article.updateTime}</td>
+                            <td>${article.readCount}</td>
+                            <td>${article.commentCount}</td>
+                            <td><a href="/article/edit/${article.id}">编辑</a>&nbsp;|&nbsp;<a href="javascript:void(0);"
+                                                                                            onclick="doDelete(${article.id})">删除</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
             </table>
 
 
@@ -61,15 +56,6 @@
     </div>
 
 </div>
-<!--
-<div class="list-group">
-    <a class="list-group-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
-    <a class="list-group-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a>
-    <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a>
-    <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
-</div>
--->
-
 
 <footer>
 
@@ -80,5 +66,29 @@
 
 
 </footer>
+<script src="/js/jquery-3.1.1.js"></script>
+<script>
+    function doDelete(id) {
+        $.ajax({
+                    type: "POST",
+                    url: "/article/doDelete/",
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        if (result.resultCode === 0) {
+                            window.location.reload();
+                        } else {
+                            alert(result.resultText);
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+        )
+    }
+</script>
 </body>
 </html>

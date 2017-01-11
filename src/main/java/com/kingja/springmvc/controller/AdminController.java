@@ -8,6 +8,7 @@ import com.kingja.springmvc.entity.JResult;
 import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page;
+import com.kingja.springmvc.util.Page2;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -93,7 +94,7 @@ public class AdminController {
     @RequestMapping(value = "/article/{page}", method = RequestMethod.GET)
     public ModelAndView articleByPage(@PathVariable("page") int page) {
         ModelAndView modelAndView = new ModelAndView("/admin/article");
-        Page<Article> articlePage = adminService.getArticlesByPage(page, 5);
+        Page2<Article> articlePage = adminService.getArticles(page, 5);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
@@ -107,6 +108,8 @@ public class AdminController {
     @RequestMapping(value = "/drafts", method = RequestMethod.GET)
     public ModelAndView drafts() {
         ModelAndView modelAndView = new ModelAndView("/admin/drafts");
+        Page2<Article> articlePage = adminService.getDraftsArticles(1, 5);
+        modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
 
@@ -119,7 +122,7 @@ public class AdminController {
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public ModelAndView category() {
         ModelAndView modelAndView = new ModelAndView("/admin/category");
-        List<Category> categorys = adminDao.getCategorys();
+        List<Category> categorys = adminDao.getAdminCategorys();
         modelAndView.addObject("categorys",categorys);
         return modelAndView;
     }

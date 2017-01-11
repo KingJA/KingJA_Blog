@@ -15,7 +15,9 @@ import java.util.List;
  */
 @Repository
 public interface AdminDao {
-    List<Article> getArticlesByPage(@Param(value = "startRow") int startRow, @Param(value = "pageSize") int pageSize);
-    List<Article> getArticles();
+    List<Article> getAdminArticlesByPage(@Param(value = "startRow") int startRow, @Param(value = "pageSize") int pageSize);
+    List<Article> getAdminArticles();
+    List<Category> getAdminCategorys();
     List<Category> getCategorys();
+    List<Article> getDraftsArticles();
 }

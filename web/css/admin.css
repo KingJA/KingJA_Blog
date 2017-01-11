@@ -74,10 +74,7 @@ td{
 tr:last-child td {
     border-bottom: none;
 }
-.t-left {
-    text-align:left;
-    text-indent: 10px;
-}
+
 table a{
     color: #2a6496;
     text-decoration: none;
@@ -90,10 +87,14 @@ table a:hover{
     color: #999;
     margin-left: 10px;
 }
-.th-title th{
+th{
     text-align: center;
     padding:0.5em 0;
     border-bottom: 2px solid #5e5e5e;
+}
+.t-left {
+    text-align:left;
+    text-indent: 10px;
 }
 tr:not(.th-title):hover {
     background: #eee8b1;

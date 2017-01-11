@@ -4,36 +4,32 @@
 }
 
 #top {
-    padding-left: 30px;
-    padding-right: 30px;
     height: 80px;
     background: #eee;
     width: 100%;
 }
-#top {
-    padding-top:20px;
-}
+
 
 #top #title{
     font-size: 1.2em;
     width: 500px;
     text-indent: 0.5em;
+    margin-top: 25px;
 }
 
-#publish {
+.button {
+    padding:0.5em 2em 0.5em;
+    margin-right: 20px;
     margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     color: #fff;
     text-align: center;
-    width: 80px;
     display: block;
     float: right;
     background: #be1a21;
     font-weight: bolder;
 }
 
-#publish:hover {
+.button:hover {
     cursor: pointer;
     color: #fff;
     background: #be3d38;
@@ -68,3 +64,4 @@
     position: relative;
     width: 100%;
 }
+

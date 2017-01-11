@@ -9,11 +9,19 @@
     <!--resultType :对应的接口类的返回类型-->
 
     <insert id="publishArticle"  parameterType="com.kingja.springmvc.entity.SaveArticle">
-      INSERT INTO article (authorId,title,category,content) VALUES (#{authorId},#{title},#{category},#{content})
+      INSERT INTO article (authorId,title,categoryId,content,display) VALUES (#{authorId},#{title},#{categoryId},#{content},#{display})
     </insert>
 
+    <update id="editArticle"  parameterType="com.kingja.springmvc.entity.SaveArticle">
+      UPDATE article SET title=#{title},categoryId=#{categoryId},content=#{content},display=#{display} WHERE id=#{id}
+    </update>
+
+    <delete id="deleteArticle">
+     DELETE FROM article WHERE id=#{id}
+    </delete>
+
     <select id="getArticleById" resultType="com.kingja.springmvc.entity.Article">
-       select  article.id,category.name AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+       select  article.id,category.id AS categoryId,category.name AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
         article.createTime, article.updateTime FROM article
         LEFT JOIN category
         ON article.categoryId=category.id

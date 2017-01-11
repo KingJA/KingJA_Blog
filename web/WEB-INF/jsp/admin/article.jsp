@@ -19,7 +19,7 @@
 <div class="container">
 
     <div class="admin-logo">${sessionScope.User.nick}
-        <p><a href="/article/edit">发布新文章</a></p>
+        <p><a href="/article/publish">发布新文章</a></p>
     </div>
     <div class="control-wrap">
         <div class="control-nav">
@@ -47,7 +47,8 @@
                             </td>
                             <td>${article.readCount}</td>
                             <td>${article.commentCount}</td>
-                            <td><a href="#">编辑</a>&nbsp;|&nbsp;<a href="#">置顶</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
+                            <td><a href="/article/edit/${article.id}">编辑</a>&nbsp;|&nbsp;<a href="#">置顶</a>&nbsp;|&nbsp;
+                                <a href="javascript:void(0);" onclick="doDelete(${article.id})">删除</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
@@ -60,5 +61,29 @@
 
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
+<script src="/js/jquery-3.1.1.js"></script>
+<script>
+        function doDelete(id) {
+            $.ajax({
+                        type: "POST",
+                        url: "/article/doDelete/",
+                        dataType: "json",
+                        data: {
+                            id: id
+                        },
+                        success: function (result) {
+                            if (result.resultCode === 0) {
+                                window.location.reload();
+                            } else {
+                                alert(result.resultText);
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    }
+            )
+        }
+</script>
 </body>
 </html>

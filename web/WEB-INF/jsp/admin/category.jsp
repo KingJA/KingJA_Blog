@@ -29,12 +29,10 @@
 
             <table cellspacing="0">
                 <tr class="th-title">
-                    <th class="col-w-33 t-left">类别</th>
+                    <th class="col-w-33">类别</th>
                     <th class="col-w-33">文章</th>
                     <th class="col-w-33">操作</th>
                 </tr>
-
-
                 <c:if test="${!empty categorys}">
                     <c:forEach items="${categorys}" var="category">
                         <tr>

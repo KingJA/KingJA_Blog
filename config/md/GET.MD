@@ -5,3 +5,5 @@
 * cursor: pointer;鼠标移过变手势
 * border-style: none;取消input原来样式
 * JS中使用EL表达式"${person.name}"，加双引号
+* 重新刷新window.location.reload();
+* 闭包中无法直接调用标签元素的onclick方法

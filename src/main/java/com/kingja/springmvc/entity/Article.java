@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class Article {
     private long id;
+    private long categoryId;
     private long authorId;
     private String category;
     private String title;
@@ -85,7 +86,13 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
+    public long getCategoryId() {
+        return categoryId;
+    }
 
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public long getAuthorId() {
         return authorId;
@@ -99,6 +106,7 @@ public class Article {
     public String toString() {
         return "Article{" +
                 "id=" + id +
+                ", categoryId=" + categoryId +
                 ", authorId=" + authorId +
                 ", category='" + category + '\'' +
                 ", title='" + title + '\'' +

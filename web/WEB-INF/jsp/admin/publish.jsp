@@ -17,11 +17,12 @@
 </head>
 <body>
 
-<div id="top">编辑
+<div id="top">
     <span>
         <input type="text" placeholder="Please input the title" id="title" name="title">
 
         <select id="category" name="category">
+            <option selected="selected" value="999" name="categoryId">--Select Tag--</option>
               <c:if test="${!empty categorys}">
                   <c:forEach items="${categorys}" var="category">
                       <option value="${category.id}" name="categoryId">${category.name}</option>
@@ -50,15 +51,6 @@
 <script>
     $(function () {
 
-        //填充内容区  标题,类别,内容
-        $("#title").val("${editArticle.title}");
-        $("#category").val("${editArticle.categoryId}");
-        $("#text-input").val("${editArticle.content}");
-
-
-
-
-
         $("#publish").bind("click",function () {
             doArticle(1);
         });
@@ -70,16 +62,15 @@
         function doArticle(display) {
             console.log("publish");
             var title = $("#title").val();
-            var categoryId = $("#category").val();
+            var category = $("#category").val();
             var content = $("#text-input").val();
             $.ajax({
                 type: "POST",
-                url: "/article/doEdit",
+                url: "/article/doPublish",
                 data: {
                     "authorId": ${sessionScope.User.id},
-                    "id": ${editArticle.id},
                     "title": title,
-                    "categoryId": categoryId,
+                    "categoryId": category,
                     "content": content,
                     "display": display
                 },

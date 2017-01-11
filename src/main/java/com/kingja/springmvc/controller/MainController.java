@@ -1,7 +1,9 @@
 package com.kingja.springmvc.controller;
 
+import com.kingja.springmvc.dao.AdminDao;
 import com.kingja.springmvc.dao.CommonDao;
 import com.kingja.springmvc.entity.Article;
+import com.kingja.springmvc.entity.Category;
 import com.kingja.springmvc.entity.Month;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page2;
@@ -29,9 +31,11 @@ public class MainController {
     AdminService adminService;
     @Autowired
     CommonDao commonDao;
+    @Autowired
+    AdminDao adminDao;
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("/main/index");
         //1.获取文章列表
         Page2<Article> articlePage = adminService.getArticles(1, 5);
         modelAndView.addObject("articlePage",articlePage);
@@ -42,7 +46,9 @@ public class MainController {
         //3.获取月份列表
         List<Month> months = commonDao.getMonth(5);
         modelAndView.addObject("months",months);
-
+        //4.获取分类列表
+        List<Category> categorys = adminDao.getAdminCategorys();
+        modelAndView.addObject("categorys",categorys);
         return modelAndView;
     }
 
@@ -53,7 +59,7 @@ public class MainController {
      */
     @RequestMapping(value = "/page/{page}", method = RequestMethod.GET)
     public ModelAndView homeByPage(@PathVariable("page") int page) {
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("/main/index");
         //1.获取文章列表
         Page2<Article> articlePage = adminService.getArticles(page, 5);
         modelAndView.addObject("articlePage",articlePage);
@@ -61,6 +67,13 @@ public class MainController {
         //2.获取热门文章列表
         List<Article> hotArticles = commonDao.getHotArticle(5);
         modelAndView.addObject("hotArticles",hotArticles);
+
+        //3.获取月份列表
+        List<Month> months = commonDao.getMonth(5);
+        modelAndView.addObject("months",months);
+        //4.获取分类列表
+        List<Category> categorys = adminDao.getAdminCategorys();
+        modelAndView.addObject("categorys",categorys);
         return modelAndView;
     }
 }

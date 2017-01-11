@@ -8,27 +8,46 @@
     <!--parameterType :对应的接口类的参数类型-->
     <!--resultType :对应的接口类的返回类型-->
 
-    <select id="getArticlesByPage" resultType="com.kingja.springmvc.entity.Article">
+    <select id="getAdminArticlesByPage" resultType="com.kingja.springmvc.entity.Article">
       select  article.id,category.name, article.title, article.content, article.readCount, article.commentCount, article.author,
       article.createTime, article.updateTime FROM article
       LEFT JOIN category
       ON article.categoryId=category.id
+      WHERE article.display=1
       ORDER BY article.createTime DESC
       limit #{startRow},#{pageSize}
     </select>
-    <select id="getArticles" resultType="com.kingja.springmvc.entity.Article">
+
+
+    <select id="getAdminArticles" resultType="com.kingja.springmvc.entity.Article">
        select  article.id,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
         article.createTime, article.updateTime FROM article
         LEFT JOIN category
         ON article.categoryId=category.id
+        WHERE article.display=1
         ORDER BY article.createTime DESC
     </select>
 
-    <select id="getCategorys" resultType="com.kingja.springmvc.entity.Category">
-        select category.id, category.`name`  AS category,COUNT(*) AS count FROM article
+    <select id="getDraftsArticles" resultType="com.kingja.springmvc.entity.Article">
+        select  article.id,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+        article.createTime, article.updateTime FROM article
+        LEFT JOIN category
+        ON article.categoryId=category.id
+        WHERE article.display=0
+        ORDER BY article.createTime DESC
+    </select>
+
+    <select id="getAdminCategorys" resultType="com.kingja.springmvc.entity.Category">
+        select category.id, category.`name`,COUNT(*) AS count FROM article
         LEFT JOIN category ON article.categoryId=category.id
+        WHERE category.`name`!=""
         GROUP BY article.categoryId
         ORDER BY category.createTime DESC
+    </select>
+
+    <select id="getCategorys" resultType="com.kingja.springmvc.entity.Category">
+        SELECT id,name from category WHERE name !="" ORDER BY createTime DESC
+
     </select>
 
 </mapper>

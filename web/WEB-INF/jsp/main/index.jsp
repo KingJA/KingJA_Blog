@@ -89,12 +89,11 @@
         <div class="hot block">
             <span class="side-title">分类文章</span>
             <ul class="side-ul">
-
-                <li class="side-li"><a href="#" class="side-a">Java(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">Android(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">Html(8)</a></li>
-                <li class="side-li"><a href="#" class="side-a">Javascript(5)</a></li>
-                <li class="side-li"><a href="#" class="side-a">数据库(5)</a></li>
+                <c:if test="${!empty categorys}">
+                    <c:forEach items="${categorys}" var="category">
+                        <li class="side-li"><a href="#" class="side-a">${category.name}(${category.count})</a></li>
+                    </c:forEach>
+                </c:if>
             </ul>
         </div>
         <div class="hot block">
