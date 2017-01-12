@@ -8,6 +8,7 @@
 * 重新刷新window.location.reload();
 * 闭包中无法直接调用标签元素的onclick方法
 * 多重排序 先后 ORDER BY top DESC ,createTime DESC
+* unicode 和汉字转码问题
 
 
 # mysql count函数
