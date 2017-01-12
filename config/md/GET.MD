@@ -8,3 +8,9 @@
 * 重新刷新window.location.reload();
 * 闭包中无法直接调用标签元素的onclick方法
 * 多重排序 先后 ORDER BY top DESC ,createTime DESC
+
+
+# mysql count函数
+* count(*)查询的是用户表中的所有记录，不论字段中是否为null,都计算在内;
+* count(列名)查询的是用户表中所有不为null的记录,不包括字段中为Null的数据;
+* count(一个数)查询的是用户表中所有记录,不论字段中是否为null,都计算在内;

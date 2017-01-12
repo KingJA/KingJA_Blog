@@ -22,5 +22,7 @@ public interface AdminDao {
     List<Article> getDraftsArticles();
 
     int addCategory(@Param(value = "name") String name);
+    int deleteCategory(@Param(value = "id") long id);
+    int editCategory(@Param(value = "id") long id,@Param(value = "name") String name);
 
 }

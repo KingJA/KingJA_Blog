@@ -36,16 +36,27 @@
                 <c:if test="${!empty categorys}">
                     <c:forEach items="${categorys}" var="category">
                         <tr>
-                            <td class="t-left"><span>${category.name}</span></td>
+                            <td class="t-left">
+                                <span id="name-${category.id}">${category.name}</span>
+                                <span id="edit-${category.id}" style="display: none">
+                                    <input id="input-${category.id}" type="text" maxlength="20"
+                                           value="${category.name}">&nbsp;
+                                    <a href="javascript:void(0)" class="none-line-a" onclick="saveEdit(${category.id})">保存&nbsp;</a>
+                                    <a href="javascript:void(0)" class="none-line-a"
+                                       onclick="cancleEdit(${category.id})">取消</a>
+                                </span>
+                            </td>
                             <td><a href="#">${category.count}</a></td>
-                            <td><a href="#">编辑</a>&nbsp;|&nbsp; <a href="#">删除</a></td>
+                            <td><a href="#" onclick="javascript:editCategory(${category.id});return false;">编辑</a>|<a
+                                    href="javascript:void(0)" onclick="deleteCategory(${category.id})">删除</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
             </table>
 
             <div>
-                <input type="text" name="name" id="category-name"><a href="javascript:void(0); " class="none-line-a" onclick="addCategory()">添加分类</a>
+                <input type="text" name="name" id="category-name"><a href="javascript:void(0);" class="none-line-a"
+                                                                     onclick="addCategory()">添加分类</a>
 
             </div>
 
@@ -67,26 +78,84 @@
 </footer>
 <script src="/js/jquery-3.1.1.js"></script>
 <script>
+    function saveEdit(id) {
+        var name = $("#input-" + id).val();
+        $("#name-" + id).show();
+        $("#edit-" + id).hide();
+        $("#name-" + id).text(name);
 
+        $.ajax({
+            url:"/admin/editCategory",
+            type:"POST",
+            data:{
+                id:id,
+                name:name
+            },
+            dataType:"json",
+            success:function (result) {
+                if (result.resultCode === 0) {
+                } else {
+                    alert(result.resultText);
+                }
+            },
+             error:function () {
+
+            },
+
+
+        });
+    }
+    function cancleEdit(id) {
+        $("#name-" + id).show();
+        $("#edit-" + id).hide();
+    }
+
+    function editCategory(id) {
+        $("#name-" + id).hide();
+        $("#input-" + id).val($("#name-" + id).text());
+        $("#edit-" + id).show();
+    }
     function addCategory() {
-        var name=$("#category-name").val();
+        var name = $("#category-name").val();
         $.ajax({
             type: "POST",
             url: "/admin/addCategory",
             data: {
-                name:name
+                name: name
             },
             dataType: "json",
-            success: function (retult) {
-                if(retult.resultCode===0){
+            success: function (result) {
+                if (result.resultCode === 0) {
                     window.location.reload();
                 } else {
-                    alert(retult.resultText);
+                    alert(result.resultText);
                 }
             },
             error: function () {
             }
         });
+    }
+
+    function deleteCategory(id) {
+        $.ajax({
+            type: "POST",
+            url: "/admin/deleteCategory",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            success: function (result) {
+                if (result.resultCode === 0) {
+                    window.location.reload();
+                } else {
+                    alert(result.resultText);
+                }
+            },
+            error: function () {
+
+            }
+        })
+
     }
 </script>
 </body>

@@ -38,11 +38,11 @@
     </select>
 
     <select id="getAdminCategorys" resultType="com.kingja.springmvc.entity.Category">
-        select category.id, category.`name`,COUNT(*) AS count FROM article
-        LEFT JOIN category ON article.categoryId=category.id
-        WHERE category.`name`!=""
-        GROUP BY article.categoryId
-        ORDER BY category.createTime DESC
+        SELECT category.id,category.name,category.createTime,count(article.title)  AS count
+        FROM category
+        LEFT JOIN article ON article.categoryId = category.id
+        GROUP BY category.id
+        ORDER BY createTime DESC
     </select>
 
     <select id="getCategorys" resultType="com.kingja.springmvc.entity.Category">
@@ -53,6 +53,12 @@
     <insert id="addCategory" >
         INSERT INTO category (name) VALUES (#{name})
     </insert>
+    <delete id="deleteCategory" >
+       DELETE FROM category WHERE id =#{id}
+    </delete>
+    <update id="editCategory" >
+       UPDATE category SET name=#{name} WHERE id =#{id}
+    </update>
 
 
 </mapper>

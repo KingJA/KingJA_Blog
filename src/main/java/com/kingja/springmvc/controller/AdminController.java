@@ -142,4 +142,28 @@ public class AdminController {
         }
         return jResult;
     }
+    @ResponseBody
+    @RequestMapping(value = "/deleteCategory", method = RequestMethod.POST)
+    public JResult deleteCategory(@RequestParam("id") long id) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = adminDao.deleteCategory(id);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/editCategory", method = RequestMethod.POST)
+    public JResult editCategory(@RequestParam("id") long id,@RequestParam("name") String name) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = adminDao.editCategory(id,name);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
 }
