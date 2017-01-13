@@ -33,5 +33,12 @@
         UPDATE article SET top=#{top} WHERE id=#{id}
     </update>
 
+    <insert id="postComment"  parameterType="com.kingja.springmvc.entity.Comment">
+        INSERT INTO comment (name,email,site,content,articleId) VALUES (#{name},#{email},#{site},#{content},#{articleId})
+    </insert>
 
+    <select id="getComments" resultType="com.kingja.springmvc.entity.Comment">
+        select * FROM comment WHERE articleId=#{articleId}
+        ORDER BY createTime DESC
+    </select>
 </mapper>

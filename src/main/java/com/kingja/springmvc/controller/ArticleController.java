@@ -132,8 +132,25 @@ public class ArticleController {
         //4.获取分类列表
         List<Category> categorys = adminDao.getAdminCategorys();
         modelAndView.addObject("categorys", categorys);
+
+        //获取评论列表
+        List<Comment> comments = articleDao.getComments(id);
+        modelAndView.addObject("comments", comments);
+
         return modelAndView;
     }
-
+    @ResponseBody
+    @RequestMapping(value = "/postComment", method = RequestMethod.POST)
+    public JResult postComment(Comment comment) {
+        logger.error("comment:"+comment.toString());
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = articleDao.postComment(comment);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
 
 }

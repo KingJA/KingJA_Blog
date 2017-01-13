@@ -53,6 +53,7 @@
     box-sizing: border-box;
     transition-duration: 0.3s;
 }
+
 .block:hover {
     border: 1px solid #eee;
     border-radius: 4px;
@@ -63,40 +64,119 @@
     box-sizing: border-box;
 }
 
-
-.title-wrap{
+.title-wrap {
     border-bottom: 2px solid #cecece;
 }
-.content-wrap{
+
+.content-wrap {
     min-height: 500px;
-    padding:20px;
+    padding: 20px;
     /*background: #eee8b1;*/
 }
 
-.title-wrap p{
+.title-wrap p {
     text-align: center;
     margin-top: 0.8em;
 }
-.article-title{
+
+.article-title {
 
     font-size: 2.5em;
     font-weight: bolder;
     color: #333;
 }
-.article-info{
+
+.article-info {
     color: #666;
     font-weight: 500;
 
 }
-.article-tag{
+
+.article-tag {
     margin-bottom: 1em;
 }
-.article-tag span{
+
+.article-tag span {
     margin-left: 1em;
     font-weight: bold;
     color: #2a6496;
 }
 
-.left-comment{
-    height: 200px;
+.left-comment-display {
+}
+
+.smart-title {
+    font-size: 1.2em;
+    padding: 0.5em 0;
+}
+
+.common-input {
+    width: 100%;
+    padding: 0.5em;
+    display: block;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+.wrap-post-comment{
+    margin: 0 auto;
+    width: 70%;
+}
+.comment-textarea {
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #333;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #333;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #333;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #333;
+}
+
+.btn_submit{
+    border-style: none;
+    outline: none;
+    font-weight: bold;
+    padding: 0.5em 2em 0.5em;
+    border-style: none;
+    background:#b4061c ;
+    color: #fff;
+}
+
+.btn_submit:hover{
+    cursor: pointer;
+    background: #b43a3e;
+
+}
+.right{
+    float: right;
+}
+.wrap-submit{
+    overflow: hidden;
+    margin: 1.5em auto;
+}
+.wrap-comment{
+    border-bottom: 1px dotted #999;
+    padding:1.2em;
+}
+
+.comment-content{
+    padding:0.8em;
+    padding-left: 1em;
+    background: #e9f6ce;
+    border-radius: 5px;
+}
+.wrap-comment:last-child{
+    border-bottom: none;
+    padding:1.2em;
 }

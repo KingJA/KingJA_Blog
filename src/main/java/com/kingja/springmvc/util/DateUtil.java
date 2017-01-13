@@ -15,6 +15,10 @@ public class DateUtil {
 		if(date==null) return "";
 		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
 		return f.format(date);
+	}public static String getFormatTime(Object date,String format){
+		if(date==null) return "";
+		SimpleDateFormat f=new SimpleDateFormat(format);
+		return f.format(date);
 	}
 	public static String getTimeTip(String time) {
 		String result = "";

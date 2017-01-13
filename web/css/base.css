@@ -13,9 +13,11 @@ footer p {
     color: #999;
 
 }
+
 li {
     list-style: none;
 }
+
 @font-face {
     font-family: Cormorant-Regular;
     src: url("/font/Cormorant-Regular.ttf");
@@ -54,6 +56,20 @@ nav {
     color: #999;
 }
 
+.f-12-3 {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+.f-1-9 {
+    color: #999;
+}
+
+.f-6-9 {
+    color: #666;
+}
+
 .f-14-blue {
     font-size: 14px;
     color: #2a6496;
@@ -74,7 +90,9 @@ nav {
 
 .col-w-3 {
     width: 30%;
-}.col-w-33 {
+}
+
+.col-w-33 {
     width: 33.333%;
 }
 
@@ -104,4 +122,19 @@ nav {
 
 .col-w-10 {
     width: 100%;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+.margin-right-1{
+    margin-right: 1em;
 }
