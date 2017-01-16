@@ -135,10 +135,34 @@ public class ArticleController {
 
         //获取评论列表
         List<Comment> comments = articleDao.getComments(id);
+
+        for (int i = 0; i < comments.size(); i++) {
+            Comment childComment = getChildCommentById(comments, comments.get(i).getChildId());
+            comments.get(i).setChildComment(childComment);
+            comments.get(i).addChildComment(comments.get(i).getChildComments());
+        }
+        logger.error(comments.toString());
+
+
+
+
+
+
+
         modelAndView.addObject("comments", comments);
 
         return modelAndView;
     }
+
+    private Comment getChildCommentById(List<Comment> comments, long childId) {
+        for (Comment comment : comments) {
+            if (comment.getChildId() == childId) {
+                return comment;
+            }
+        }
+        return new Comment();
+    }
+
     @ResponseBody
     @RequestMapping(value = "/postComment", method = RequestMethod.POST)
     public JResult postComment(Comment comment) {
