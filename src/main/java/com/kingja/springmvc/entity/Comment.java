@@ -1,6 +1,7 @@
 package com.kingja.springmvc.entity;
 
 import com.kingja.springmvc.util.DateUtil;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +23,7 @@ public class Comment {
     private Date createTime;
     private long childId;/*下级评论id*/
     private long fatherId;/*上级评论id*/
-
+    private static Logger logger = Logger.getLogger(Comment.class);
     public Comment getChildComment() {
         return childComment;
     }
@@ -56,10 +57,13 @@ public class Comment {
 
 
     public void addChildComment(List<Comment> comments) {
-        if (this.childId != 0&&this.fatherId==0) {
-            Comment childComment = getChildComment();
+        if (this.childId != 0) {
+            logger.error("childId:"+childId+" fatherId:"+fatherId);
             comments.add(childComment);
+            Comment childComment = getChildComment();
             childComment.addChildComment(comments);
+        }else{
+            this.childComments.add(this);
         }
     }
 
@@ -117,15 +121,8 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", articleId=" + articleId +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", site='" + site + '\'' +
-                ", content='" + content + '\'' +
-                ", createTime=" + createTime +
-                ", childId=" + childId +
-                ", fatherId=" + fatherId +
-                ", childComments=" + childComments +
-                '}';
+                ", content=" + content +
+                ", name='" + name ;
     }
 
     public String getCreateTime() {
@@ -139,4 +136,15 @@ public class Comment {
     public void setChildComment(Comment childComment) {
         this.childComment = childComment;
     }
+
+    public List<Comment> getTotleComment() {
+        return totleComment;
+    }
+
+    public void setTotleComment(List<Comment> totleComment) {
+        this.totleComment = totleComment;
+    }
+
+    private List<Comment> totleComment=new ArrayList<Comment>();
+
 }

@@ -18,11 +18,19 @@ import java.util.List;
 public interface ArticleDao {
 
 
-    List<Comment> getComments(@Param(value = "articleId")long articleId);
+    List<Comment> getComments(@Param(value = "articleId") long articleId);
+
+    Comment getCommentById(@Param(value = "articleId") long articleId, @Param(value = "id") long id);
+
     int postComment(Comment comment);
+
     int publishArticle(SaveArticle alticle);
+
     int editArticle(SaveArticle alticle);
-    int deleteArticle(@Param(value = "id")long id);
-    Article getArticleById(@Param(value = "id")long id);
-    int setTop(@Param(value = "id") long id,@Param(value = "top") long top);
+
+    int deleteArticle(@Param(value = "id") long id);
+
+    Article getArticleById(@Param(value = "id") long id);
+
+    int setTop(@Param(value = "id") long id, @Param(value = "top") long top);
 }

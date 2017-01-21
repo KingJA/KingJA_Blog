@@ -41,11 +41,11 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView edit(@PathVariable("id")long id) {
+    public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView modelAndView = new ModelAndView("/admin/edit");
         //获取根据id获取文章信息
         Article editArticle = articleDao.getArticleById(id);
-        logger.error("editArticle:"+editArticle.toString());
+        logger.error("editArticle:" + editArticle.toString());
         modelAndView.addObject("editArticle", editArticle);
         //获取分类信息
         List<Category> categorys = adminDao.getCategorys();
@@ -96,9 +96,9 @@ public class ArticleController {
 
     @ResponseBody
     @RequestMapping(value = "/setTop", method = RequestMethod.POST)
-    public JResult setTop(@RequestParam("id") long id,@RequestParam("top") long top) {
+    public JResult setTop(@RequestParam("id") long id, @RequestParam("top") long top) {
         JResult<Object> jResult = new JResult<Object>();
-        int effectLine = articleDao.setTop(id,top);
+        int effectLine = articleDao.setTop(id, top);
         if (effectLine > 0) {
             jResult.setResultCode(0);
         } else {
@@ -136,37 +136,31 @@ public class ArticleController {
         //获取评论列表
         List<Comment> comments = articleDao.getComments(id);
 
-        for (int i = 0; i < comments.size(); i++) {
-            Comment childComment = getChildCommentById(comments, comments.get(i).getChildId());
-            comments.get(i).setChildComment(childComment);
-            comments.get(i).addChildComment(comments.get(i).getChildComments());
+        for (Comment comment : comments) {
+            if (comment.getChildId() != 0) {
+                comment.setChildComment(getChildCommentById(comments, comment.getChildId()));
+            }
         }
-        logger.error(comments.toString());
+        for (int i = 0; i < comments.size(); i++) {
+            if (comments.get(i).getFatherId() == 0) {
+                comments.get(i).addChildComment(comments.get(i).getChildComments());
+            }
 
-
-
-
-
-
-
+        }
+        for (Comment comment : comments) {
+            logger.error(comment.getChildComments().size());
+            logger.error(comment.getChildComments());
+        }
         modelAndView.addObject("comments", comments);
 
         return modelAndView;
     }
 
-    private Comment getChildCommentById(List<Comment> comments, long childId) {
-        for (Comment comment : comments) {
-            if (comment.getChildId() == childId) {
-                return comment;
-            }
-        }
-        return new Comment();
-    }
 
     @ResponseBody
     @RequestMapping(value = "/postComment", method = RequestMethod.POST)
     public JResult postComment(Comment comment) {
-        logger.error("comment:"+comment.toString());
+        logger.error("comment:" + comment.toString());
         JResult<Object> jResult = new JResult<Object>();
         int effectLine = articleDao.postComment(comment);
         if (effectLine > 0) {
@@ -177,4 +171,12 @@ public class ArticleController {
         return jResult;
     }
 
+    private Comment getChildCommentById(List<Comment> comments, long childId) {
+        for (Comment comment : comments) {
+            if (comment.getId() == childId) {
+                return comment;
+            }
+        }
+        return new Comment();
+    }
 }

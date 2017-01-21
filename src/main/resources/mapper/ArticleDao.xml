@@ -41,4 +41,9 @@
         select * FROM comment WHERE articleId=#{articleId}
         ORDER BY createTime DESC
     </select>
+
+    <select id="getCommentById" resultType="com.kingja.springmvc.entity.Comment">
+        select * FROM comment WHERE articleId=#{articleId} AND id=#{id}
+        ORDER BY createTime DESC
+    </select>
 </mapper>
