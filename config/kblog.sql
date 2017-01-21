@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2017-01-13 17:15:56
+Date: 2017-01-21 17:06:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -92,18 +92,28 @@ CREATE TABLE `comment` (
   `content` varchar(255) DEFAULT '' COMMENT '评论内容',
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `articleId` int(11) DEFAULT NULL,
+  `childId` int(11) DEFAULT '0',
+  `fatherId` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `comment_ibfk_1` (`articleId`),
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`articleId`) REFERENCES `article` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES ('1', '姓名(必填)', '网站(选填)', 'Email(选填)', '我还是很感兴趣的', '2017-01-13 15:32:58', '14');
-INSERT INTO `comment` VALUES ('2', 'Kingja ', 'www.baidu.com', 'abc@gmai.com', '先生请留步！', '2017-01-13 15:36:21', '14');
-INSERT INTO `comment` VALUES ('3', 'aaa', '网站(选填)', 'Email(选填)', 'dfa ds ', '2017-01-13 15:39:06', '14');
-INSERT INTO `comment` VALUES ('4', 'xiao', '网站(选填)', '我就是过来感谢下', '恩是的', '2017-01-13 17:09:52', '14');
+INSERT INTO `comment` VALUES ('1', '姓名(必填)', '网站(选填)', 'Email(选填)', '我还是很感兴趣的', '2017-01-13 15:32:58', '14', '7', '0');
+INSERT INTO `comment` VALUES ('2', 'Kingja ', 'www.baidu.com', 'abc@gmai.com', '先生请留步！', '2017-01-13 15:36:21', '14', '0', '0');
+INSERT INTO `comment` VALUES ('3', 'aaa', '网站(选填)', 'Email(选填)', 'dfa ds ', '2017-01-13 15:39:06', '14', '0', '0');
+INSERT INTO `comment` VALUES ('4', 'xiao', '网站(选填)', '我就是过来感谢下', '恩是的', '2017-01-13 17:09:52', '14', '0', '0');
+INSERT INTO `comment` VALUES ('5', '好事不留名', '网站(选填)', 'Email(选填)', '谢谢大侠，学到', '2017-01-16 14:08:41', '14', '0', '0');
+INSERT INTO `comment` VALUES ('6', '丽丽', '网站(选填)', 'Email(选填)', '不错', '2017-01-16 16:14:07', '14', '0', '0');
+INSERT INTO `comment` VALUES ('7', 'Jordan', 'www', 'email', '我是评论7', '2017-01-16 16:52:31', '14', '8', '1');
+INSERT INTO `comment` VALUES ('8', 'Jordan', 'www', 'email', '我是评论8', '2017-01-16 16:52:32', '14', '9', '7');
+INSERT INTO `comment` VALUES ('9', 'Jordan', 'www', 'email', '我是评论9', '2017-01-16 16:52:33', '14', '10', '8');
+INSERT INTO `comment` VALUES ('10', 'Jordan', 'www', 'email', '我是评论10', '2017-01-16 16:52:34', '14', '11', '9');
+INSERT INTO `comment` VALUES ('11', 'Jordan', 'www', 'email', '我是评论11', '2017-01-16 16:52:34', '14', '12', '10');
+INSERT INTO `comment` VALUES ('12', 'Jordan', 'www', 'email', '我是评论12', '2017-01-16 16:52:35', '14', '0', '11');
 
 -- ----------------------------
 -- Table structure for user
