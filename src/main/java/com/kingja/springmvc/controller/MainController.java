@@ -4,6 +4,7 @@ import com.kingja.springmvc.dao.AdminDao;
 import com.kingja.springmvc.dao.CommonDao;
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.Category;
+import com.kingja.springmvc.entity.Counter;
 import com.kingja.springmvc.entity.Month;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page2;
@@ -42,6 +43,7 @@ public class MainController {
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView home() {
+        logger.error("home");
         ModelAndView modelAndView = new ModelAndView("/main/index");
         //1.获取文章列表
         Page2<Article> articlePage = adminService.getArticles(1, 5);
@@ -55,6 +57,9 @@ public class MainController {
         //4.获取分类列表
         List<Category> categorys = commonDao.getAvailableCategory(99);
         modelAndView.addObject("categorys", categorys);
+        //5.当前在线人数
+        long onLineCount = Counter.getOnline();
+        modelAndView.addObject("onLineCount", onLineCount);
         return modelAndView;
     }
 
