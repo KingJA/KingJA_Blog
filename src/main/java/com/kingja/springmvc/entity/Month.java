@@ -10,6 +10,16 @@ import com.kingja.springmvc.util.DateUtil;
  */
 public class Month {
     private String month;
+
+    public String getSingleMonth() {
+        return month;
+    }
+
+    public void setSingleMonth(String singleMonth) {
+        this.singleMonth = singleMonth;
+    }
+
+    private String singleMonth;
     private int count;
 
     public String getMonth() {

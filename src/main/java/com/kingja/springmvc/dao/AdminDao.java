@@ -17,6 +17,7 @@ import java.util.List;
 public interface AdminDao {
     List<Article> getAdminArticlesByPage(@Param(value = "startRow") int startRow, @Param(value = "pageSize") int pageSize);
     List<Article> getAdminArticles();
+    List<Article> getAdminArticlesByDate(@Param(value = "publishDate") String publishDate);
     List<Category> getAdminCategorys();
     List<Category> getCategorys();
     List<Article> getDraftsArticles();

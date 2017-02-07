@@ -58,6 +58,30 @@ public class MainController {
     }
 
     /**
+     * 时间分类首页
+     * @return
+     */
+    @RequestMapping(value = "/article/date/{date}", method = RequestMethod.GET)
+    public ModelAndView dateList(@PathVariable("date") String date) {
+        logger.error(date);
+        ModelAndView modelAndView = new ModelAndView("/main/dateList");
+        modelAndView.addObject("date", date);
+        //1.获取文章列表
+        Page2<Article> articlePage = adminService.getArticlesByDate(1, 5,date);
+        modelAndView.addObject("articlePage", articlePage);
+        //2.获取热门文章列表
+        List<Article> hotArticles = commonDao.getHotArticle(5);
+        modelAndView.addObject("hotArticles", hotArticles);
+        //3.获取月份列表
+        List<Month> months = commonDao.getMonth(5);
+        modelAndView.addObject("months", months);
+        //4.获取分类列表
+        List<Category> categorys = adminDao.getAdminCategorys();
+        modelAndView.addObject("categorys", categorys);
+        return modelAndView;
+    }
+
+    /**
      * 文章列表 - 分页
      * @param page
      * @return

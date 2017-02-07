@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>主页</title>
+    <title>${date}</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/home.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -91,7 +91,7 @@
             <ul class="side-ul">
                 <c:if test="${!empty categorys}">
                     <c:forEach items="${categorys}" var="category">
-                        <li class="side-li"><a href="/article/date/${category.name}" class="side-a">${category.name}(${category.count})</a></li>
+                        <li class="side-li"><a href="#" class="side-a">${category.name}(${category.count})</a></li>
                     </c:forEach>
                 </c:if>
             </ul>

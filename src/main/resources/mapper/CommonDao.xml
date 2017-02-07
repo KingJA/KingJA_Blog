@@ -13,7 +13,11 @@
     </select>
 
     <select id="getMonth" resultType="com.kingja.springmvc.entity.Month">
-       SELECT left(createTime, 7) AS month ,COUNT(*) AS count FROM  article GROUP BY left(createTime, 7) ORDER BY left(createTime, 7) DESC LIMIT #{monthSize} ;
+       SELECT left(createTime, 7) AS month ,COUNT(*) AS count FROM  article
+       WHERE display=1
+       GROUP BY left(createTime, 7)
+       ORDER BY left(createTime, 7)
+       DESC LIMIT #{monthSize} ;
     </select>
 
 </mapper>
