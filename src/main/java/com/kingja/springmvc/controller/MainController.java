@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * Description：TODO
+ * Description：首页
  * Create Time：2016/11/15 15:35
  * Author:KingJA
  * Email:kingjavip@gmail.com
@@ -35,13 +35,12 @@ public class MainController {
     AdminDao adminDao;
 
 
-
+    /**
+     * 首页
+     * @return
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView home() {
-//        String result = HttpClientUtil.getInstance().sendHttpsGet("http://ip.taobao.com/service/getIpInfo.php?ip=221.131.238.146");
-//        IpInfo ipInfo = ConvertUtil.str2Entity(result, IpInfo.class);
-//        logger.error("ipInfo:" + ipInfo.getData().toString());
-
         ModelAndView modelAndView = new ModelAndView("/main/index");
         //1.获取文章列表
         Page2<Article> articlePage = adminService.getArticles(1, 5);
@@ -58,10 +57,8 @@ public class MainController {
         return modelAndView;
     }
 
-
     /**
-     * 获取文章列表
-     *
+     * 文章列表 - 分页
      * @param page
      * @return
      */

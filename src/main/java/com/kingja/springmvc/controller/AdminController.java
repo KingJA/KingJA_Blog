@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Description：管理员
+ * Description：管理员 - 控制器
  * Create Time：2016/11/15 15:35
  * Author:KingJA
  * Email:kingjavip@gmail.com
@@ -36,8 +36,7 @@ public class AdminController {
     private static Logger logger = Logger.getLogger(AdminController.class);
 
     /**
-     * 登录页
-     *
+     * 登录界面
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -47,8 +46,7 @@ public class AdminController {
     }
 
     /**
-     * 登录处理
-     *
+     * 登录逻辑
      * @param name
      * @param password
      * @param session
@@ -72,8 +70,7 @@ public class AdminController {
 
 
     /**
-     * 获取文章列表 首页
-     *
+     * 文章列表 - 首页
      * @return
      */
     @RequestMapping(value = "/article", method = RequestMethod.GET)
@@ -86,8 +83,7 @@ public class AdminController {
     }
 
     /**
-     * 获取文章列表
-     *
+     * 文章列表
      * @param page
      * @return
      */
@@ -100,12 +96,20 @@ public class AdminController {
         return modelAndView;
     }
 
+    /**
+     * 账号列表
+     * @return
+     */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public ModelAndView account() {
         ModelAndView modelAndView = new ModelAndView("/admin/account");
         return modelAndView;
     }
 
+    /**
+     * 草稿箱
+     * @return
+     */
     @RequestMapping(value = "/drafts", method = RequestMethod.GET)
     public ModelAndView drafts() {
         ModelAndView modelAndView = new ModelAndView("/admin/drafts");
@@ -114,12 +118,20 @@ public class AdminController {
         return modelAndView;
     }
 
+    /**
+     * 评论列表
+     * @return
+     */
     @RequestMapping(value = "/comment", method = RequestMethod.GET)
     public ModelAndView comment() {
         ModelAndView modelAndView = new ModelAndView("/admin/comment");
         return modelAndView;
     }
 
+    /**
+     * 分类列表
+     * @return
+     */
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public ModelAndView category() {
         ModelAndView modelAndView = new ModelAndView("/admin/category");
@@ -130,6 +142,11 @@ public class AdminController {
     }
 
 
+    /**
+     * 添加分类
+     * @param name
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
     public JResult addCategory(@RequestParam("name") String name) {
@@ -142,6 +159,12 @@ public class AdminController {
         }
         return jResult;
     }
+
+    /**
+     * 删除分类
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/deleteCategory", method = RequestMethod.POST)
     public JResult deleteCategory(@RequestParam("id") long id) {
@@ -154,6 +177,14 @@ public class AdminController {
         }
         return jResult;
     }
+
+    /**
+     *
+     * 编辑分类
+     * @param id
+     * @param name
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/editCategory", method = RequestMethod.POST)
     public JResult editCategory(@RequestParam("id") long id,@RequestParam("name") String name) {

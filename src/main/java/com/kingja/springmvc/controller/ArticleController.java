@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * Description：管理员
+ * Description：文章 - 控制器
  * Create Time：2016/11/15 15:35
  * Author:KingJA
  * Email:kingjavip@gmail.com
@@ -31,6 +31,11 @@ public class ArticleController {
 
     private static Logger logger = Logger.getLogger(ArticleController.class);
 
+    /**
+     * 文章发布 界面
+     *
+     * @return
+     */
     @RequestMapping(value = "/publish", method = RequestMethod.GET)
     public ModelAndView publish() {
         ModelAndView modelAndView = new ModelAndView("/admin/publish");
@@ -40,6 +45,12 @@ public class ArticleController {
         return modelAndView;
     }
 
+    /**
+     * 文章修改
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView modelAndView = new ModelAndView("/admin/edit");
@@ -53,6 +64,12 @@ public class ArticleController {
         return modelAndView;
     }
 
+    /**
+     * 文章发布逻辑
+     *
+     * @param saveArticle
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/doPublish", method = RequestMethod.POST)
     public JResult doPublish(SaveArticle saveArticle) {
@@ -67,6 +84,12 @@ public class ArticleController {
         return jResult;
     }
 
+    /**
+     * 文章修改
+     *
+     * @param saveArticle
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/doEdit", method = RequestMethod.POST)
     public JResult doEdit(SaveArticle saveArticle) {
@@ -81,6 +104,12 @@ public class ArticleController {
         return jResult;
     }
 
+    /**
+     * 文章 删除
+     *
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/doDelete", method = RequestMethod.POST)
     public JResult doDelete(@RequestParam("id") long id) {
@@ -94,6 +123,13 @@ public class ArticleController {
         return jResult;
     }
 
+    /**
+     * 文章置顶
+     *
+     * @param id
+     * @param top
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/setTop", method = RequestMethod.POST)
     public JResult setTop(@RequestParam("id") long id, @RequestParam("top") long top) {
@@ -136,27 +172,17 @@ public class ArticleController {
         //获取评论列表
         List<Comment> comments = articleDao.getComments(id);
 
-        for (Comment comment : comments) {
-            if (comment.getChildId() != 0) {
-                comment.setChildComment(getChildCommentById(comments, comment.getChildId()));
-            }
-        }
-        for (int i = 0; i < comments.size(); i++) {
-            if (comments.get(i).getFatherId() == 0) {
-                comments.get(i).addChildComment(comments.get(i).getChildComments());
-            }
-
-        }
-        for (Comment comment : comments) {
-            logger.error(comment.getChildComments().size());
-            logger.error(comment.getChildComments());
-        }
         modelAndView.addObject("comments", comments);
 
         return modelAndView;
     }
 
-
+    /**
+     * 发表评论
+     *
+     * @param comment
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/postComment", method = RequestMethod.POST)
     public JResult postComment(Comment comment) {
@@ -171,12 +197,4 @@ public class ArticleController {
         return jResult;
     }
 
-    private Comment getChildCommentById(List<Comment> comments, long childId) {
-        for (Comment comment : comments) {
-            if (comment.getId() == childId) {
-                return comment;
-            }
-        }
-        return new Comment();
-    }
 }
