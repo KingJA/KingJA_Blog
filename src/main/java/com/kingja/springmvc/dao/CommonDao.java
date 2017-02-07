@@ -24,4 +24,6 @@ public interface CommonDao {
     /*获取月份前N*/
     List<Month> getMonth(@Param(value = "monthSize") int monthSize);
 
+   String getCategoryNameById(@Param(value = "categoryId") long categoryId);
+
 }

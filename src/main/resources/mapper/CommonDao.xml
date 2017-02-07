@@ -12,6 +12,10 @@
         select id,title from article ORDER BY readCount DESC limit #{top}
     </select>
 
+    <select id="getCategoryNameById" resultType="String">
+        select name from category WHERE id=#{categoryId}
+    </select>
+
     <select id="getMonth" resultType="com.kingja.springmvc.entity.Month">
        SELECT left(createTime, 7) AS month ,COUNT(*) AS count FROM  article
        WHERE display=1

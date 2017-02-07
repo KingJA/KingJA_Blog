@@ -37,6 +37,7 @@ public class MainController {
 
     /**
      * 首页
+     *
      * @return
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -59,6 +60,7 @@ public class MainController {
 
     /**
      * 时间分类首页
+     *
      * @return
      */
     @RequestMapping(value = "/article/date/{date}", method = RequestMethod.GET)
@@ -67,7 +69,7 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView("/main/dateList");
         modelAndView.addObject("date", date);
         //1.获取文章列表
-        Page2<Article> articlePage = adminService.getArticlesByDate(1, 5,date);
+        Page2<Article> articlePage = adminService.getArticlesByDate(1, 5, date);
         modelAndView.addObject("articlePage", articlePage);
         //2.获取热门文章列表
         List<Article> hotArticles = commonDao.getHotArticle(5);
@@ -79,16 +81,21 @@ public class MainController {
         List<Category> categorys = commonDao.getAvailableCategory(99);
         modelAndView.addObject("categorys", categorys);
         return modelAndView;
-    } /**
-     * 时间分类首页
+    }
+
+    /**
+     * 类别分类首页
+     *
+     * @param categoryId
      * @return
      */
     @RequestMapping(value = "/article/category/{categoryId}", method = RequestMethod.GET)
     public ModelAndView categoryList(@PathVariable("categoryId") long categoryId) {
         ModelAndView modelAndView = new ModelAndView("/main/categoryList");
-        modelAndView.addObject("categoryName", categoryId);
+        String categoryName = commonDao.getCategoryNameById(categoryId);
+        modelAndView.addObject("categoryName", categoryName);
         //1.获取文章列表
-        Page2<Article> articlePage = adminService.getArticlesByCategory(1, 5,categoryId);
+        Page2<Article> articlePage = adminService.getArticlesByCategory(1, 5, categoryId);
         modelAndView.addObject("articlePage", articlePage);
         //2.获取热门文章列表
         List<Article> hotArticles = commonDao.getHotArticle(5);
@@ -104,6 +111,7 @@ public class MainController {
 
     /**
      * 文章列表 - 分页
+     *
      * @param page
      * @return
      */
