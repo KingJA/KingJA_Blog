@@ -107,7 +107,7 @@
             <c:if test="${!empty months}">
                 <ul class="side-ul">
                     <c:forEach items="${months}" var="month">
-                        <li class="side-li"><a href="#" class="side-a">${month.month}(${month.count})</a></li>
+                        <li class="side-li"><a href="/article/date/${month.singleMonth}" class="side-a">${month.month}(${month.count})</a></li>
                     </c:forEach>
                 </ul>
             </c:if>

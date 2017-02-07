@@ -56,7 +56,9 @@
     </select>
 
     <select id="getCategorys" resultType="com.kingja.springmvc.entity.Category">
-        SELECT id,name from category WHERE name !="" ORDER BY createTime DESC
+        SELECT id,name from category
+        WHERE name !="" AND
+        ORDER BY createTime DESC
 
     </select>
 

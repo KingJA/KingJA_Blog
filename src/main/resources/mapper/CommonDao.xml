@@ -20,4 +20,13 @@
        DESC LIMIT #{monthSize} ;
     </select>
 
+    <select id="getAvailableCategory" resultType="com.kingja.springmvc.entity.Category">
+        SELECT * FROM (SELECT category.id,category.name,category.createTime,count(article.title)  AS count
+        FROM category
+        LEFT JOIN article ON article.categoryId = category.id
+        WHERE category.name !=""
+        GROUP BY category.id
+        ORDER BY createTime DESC
+        LIMIT #{top}) AS result WHERE count>0
+    </select>
 </mapper>

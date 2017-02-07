@@ -33,8 +33,5 @@ web端技术选型
 * 防止评论重复提交，刷评论
 
 # 2017-02-07 ============================================================
-* About me
-* Home
-* search
-* article category
-
+* About men,Home,search，article category
+* fix invisible when the count of articles order by category is zero
