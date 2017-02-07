@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>主页</title>
+    <title>${categoryId}</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/home.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">

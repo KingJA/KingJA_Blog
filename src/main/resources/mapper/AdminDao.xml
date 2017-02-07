@@ -38,6 +38,16 @@
         ORDER BY top DESC ,createTime DESC
     </select>
 
+    <select id="getAdminArticlesByCategory" resultType="com.kingja.springmvc.entity.Article">
+       select  article.id,article.top,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
+        article.createTime, article.updateTime FROM article
+        LEFT JOIN category
+        ON article.categoryId=category.id
+        WHERE article.display=1
+        AND category.id=#{categoryId}
+        ORDER BY top DESC ,createTime DESC
+    </select>
+
     <select id="getDraftsArticles" resultType="com.kingja.springmvc.entity.Article">
         select  article.id,article.top,category.name  AS category, article.title, article.content, article.readCount, article.commentCount, article.author,
         article.createTime, article.updateTime FROM article

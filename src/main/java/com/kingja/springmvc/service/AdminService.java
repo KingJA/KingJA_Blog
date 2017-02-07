@@ -15,5 +15,6 @@ public interface AdminService {
     Page<Article> getArticlesByPage(int currentPage, int pageSize);
     Page2<Article> getArticles(int currentPage, int pageSize);
     Page2<Article> getArticlesByDate(int currentPage, int pageSize,String publishDate);
+    Page2<Article> getArticlesByCategory(int currentPage, int pageSize,long categoryId);
     Page2<Article> getDraftsArticles(int currentPage, int pageSize);
 }

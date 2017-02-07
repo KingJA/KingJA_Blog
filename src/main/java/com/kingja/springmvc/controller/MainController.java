@@ -76,7 +76,28 @@ public class MainController {
         List<Month> months = commonDao.getMonth(5);
         modelAndView.addObject("months", months);
         //4.获取分类列表
-        List<Category> categorys = adminDao.getAdminCategorys();
+        List<Category> categorys = commonDao.getAvailableCategory(99);
+        modelAndView.addObject("categorys", categorys);
+        return modelAndView;
+    } /**
+     * 时间分类首页
+     * @return
+     */
+    @RequestMapping(value = "/article/category/{categoryId}", method = RequestMethod.GET)
+    public ModelAndView categoryList(@PathVariable("categoryId") long categoryId) {
+        ModelAndView modelAndView = new ModelAndView("/main/categoryList");
+        modelAndView.addObject("categoryName", categoryId);
+        //1.获取文章列表
+        Page2<Article> articlePage = adminService.getArticlesByCategory(1, 5,categoryId);
+        modelAndView.addObject("articlePage", articlePage);
+        //2.获取热门文章列表
+        List<Article> hotArticles = commonDao.getHotArticle(5);
+        modelAndView.addObject("hotArticles", hotArticles);
+        //3.获取月份列表
+        List<Month> months = commonDao.getMonth(5);
+        modelAndView.addObject("months", months);
+        //4.获取分类列表
+        List<Category> categorys = commonDao.getAvailableCategory(99);
         modelAndView.addObject("categorys", categorys);
         return modelAndView;
     }

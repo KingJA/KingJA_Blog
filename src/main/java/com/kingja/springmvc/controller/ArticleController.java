@@ -166,7 +166,7 @@ public class ArticleController {
         modelAndView.addObject("months", months);
 
         //4.获取分类列表
-        List<Category> categorys = adminDao.getAdminCategorys();
+        List<Category> categorys = commonDao.getAvailableCategory(99);
         modelAndView.addObject("categorys", categorys);
 
         //获取评论列表

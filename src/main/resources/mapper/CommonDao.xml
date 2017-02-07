@@ -24,7 +24,7 @@
         SELECT * FROM (SELECT category.id,category.name,category.createTime,count(article.title)  AS count
         FROM category
         LEFT JOIN article ON article.categoryId = category.id
-        WHERE category.name !=""
+        WHERE category.name !="" AND article.display=1
         GROUP BY category.id
         ORDER BY createTime DESC
         LIMIT #{top}) AS result WHERE count>0

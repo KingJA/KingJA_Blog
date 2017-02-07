@@ -18,6 +18,7 @@ public interface AdminDao {
     List<Article> getAdminArticlesByPage(@Param(value = "startRow") int startRow, @Param(value = "pageSize") int pageSize);
     List<Article> getAdminArticles();
     List<Article> getAdminArticlesByDate(@Param(value = "publishDate") String publishDate);
+    List<Article> getAdminArticlesByCategory(@Param(value = "categoryId") long categoryId);
     List<Category> getAdminCategorys();
     List<Category> getCategorys();
     List<Article> getDraftsArticles();

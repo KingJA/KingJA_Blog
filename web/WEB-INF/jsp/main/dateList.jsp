@@ -91,7 +91,7 @@
             <ul class="side-ul">
                 <c:if test="${!empty categorys}">
                     <c:forEach items="${categorys}" var="category">
-                        <li class="side-li"><a href="#" class="side-a">${category.name}(${category.count})</a></li>
+                        <li class="side-li"><a href="/article/category/${category.id}" class="side-a">${category.name}(${category.count})</a></li>
                     </c:forEach>
                 </c:if>
             </ul>

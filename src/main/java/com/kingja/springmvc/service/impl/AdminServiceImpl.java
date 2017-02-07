@@ -54,6 +54,15 @@ public class AdminServiceImpl implements AdminService {
         return page2;
     }
 
+    public Page2<Article> getArticlesByCategory(int currentPage, int pageSize,long categoryId) {
+        List<Article> articles = adminDao.getAdminArticlesByCategory(categoryId);
+        Page2<Article> page2 = new Page2<Article>().setCurrentPage(currentPage)
+                .setPageSize(pageSize)
+                .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
+                .setAllDatas(articles);
+        return page2;
+    }
+
     public Page2<Article> getDraftsArticles(int currentPage, int pageSize) {
         List<Article> articles = adminDao.getDraftsArticles();
         Page2<Article> page2 = new Page2<Article>().setCurrentPage(currentPage)
