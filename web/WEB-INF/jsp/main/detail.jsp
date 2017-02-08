@@ -8,20 +8,17 @@
     <title>主页</title>
     <link href="/plug/highlight/default.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/article.css?v=1" rel="stylesheet">
-    <link href="/css/base.css?v=2" rel="stylesheet">
+    <link href="/css/article.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
     <script src="/js/jquery-3.1.1.js"></script>
 </head>
 <body>
-
-<nav>
-
-</nav>
+<jsp:include page="../common/nav.jsp"/>
 
 <div class="container">
     <div class="left-wrap ">
-        <div class="block">
+        <div class="detail_block">
             <div class="title-wrap">
                 <p class="article-title">${article.title}</p>
                 <p class="article-info">阅读数(<span class="f-14-blue">${article.readCount}</span>) 评论数(<span
@@ -35,7 +32,7 @@
             <div class="content-wrap" id="article"></div>
             <input type="hidden" id="preContent" value="${article.content}">
         </div>
-        <div class="left-comment-display block"><span class="side-title">评论(${fn:length(comments)})</span>
+        <div class="left-comment-display detail_block"><span class="side-title">评论(${fn:length(comments)})</span>
 
             <div class="root-comment">
                 <c:if test="${!empty comments}">
@@ -52,7 +49,7 @@
                 </c:if>
             </div>
         </div>
-        <div class="left-comment block">
+        <div class="left-comment detail_block">
             <p class="smart-title">我想说几句</p>
             <form method="post" id="form-comment" onsubmit="return false;">
                 <div class="wrap-post-comment">

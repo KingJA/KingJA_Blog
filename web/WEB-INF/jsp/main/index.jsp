@@ -11,16 +11,10 @@
     <link href="/css/base.css" rel="stylesheet">
 </head>
 <body>
-
-<jsp:include page="../common/nav.jsp"></jsp:include>
-
-
+<jsp:include page="../common/nav.jsp"/>
 <div class="container">
-
   <jsp:include page="../common/article_list.jsp"/>
   <jsp:include page="../common/right_side.jsp"/>
-
-
 </div>
 <jsp:include page="../common/footer.jsp"/>
 </body>

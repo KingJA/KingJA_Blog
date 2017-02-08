@@ -47,7 +47,7 @@
     /*background: #ffff00;*/
     margin-bottom: 10px;
     font-size: 1.4em;
-    border-bottom: 4px solid #2a6496;
+    border-bottom: 4px solid #c2c4c6;
 }
 
 .block {
@@ -58,6 +58,11 @@
     box-shadow: 4px 4px 4px #c6c6c6;
     box-sizing: border-box;
     /*border-bottom: 4px solid #2a6496;*/
+}
+
+.block:hover {
+    box-shadow: 6px 6px 6px #c6c6c6;
+    box-sizing: border-box;
 }
 
 .article-category {
@@ -88,7 +93,7 @@
  .article{
      overflow:hidden;
      padding:20px;
-     border-bottom: 1px dashed #c1c1c1;
+     border-bottom: 1px dashed #9a9a9a;
  }
 
 .article-title {

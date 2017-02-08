@@ -33,17 +33,16 @@
 .side-a:hover {
     color: #2a6496;
 }
-
 .side-title {
     display: inline-block;
     padding: 0.5em 0;
     /*background: #ffff00;*/
     margin-bottom: 10px;
     font-size: 1.4em;
-    border-bottom: 4px solid #2a6496;
+    border-bottom: 4px solid #eceff1;
 }
 
-.block {
+.detail_block {
     border: 1px solid #eee;
     border-radius: 4px;
     margin-bottom: 2em;
@@ -54,7 +53,7 @@
     transition-duration: 0.3s;
 }
 
-.block:hover {
+.detail_block:hover {
     border: 1px solid #eee;
     border-radius: 4px;
     margin-bottom: 30px;
@@ -179,4 +178,18 @@ textarea::-webkit-input-placeholder {
 .wrap-comment:last-child{
     border-bottom: none;
     padding:1.2em;
+}
+
+.block {
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 4px 4px 4px #c6c6c6;
+    box-sizing: border-box;
+    /*border-bottom: 4px solid #2a6496;*/
+}
+.block:hover {
+    box-shadow: 6px 6px 6px #c6c6c6;
+    box-sizing: border-box;
 }

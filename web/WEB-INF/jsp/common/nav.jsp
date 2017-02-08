@@ -11,6 +11,7 @@
         <a href="/" class="logo_title">KingJA</a>
 
         <ul class="nav_menu">
+            <li> <a href="/admin/login">Login</a></li>
             <li> <a href="#">About me</a></li>
             <li> <a href="#">About site</a></li>
             <li> <a href="#">Shanggu</a></li>

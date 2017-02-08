@@ -39,8 +39,8 @@ web端技术选型
 * fix invisible when the count of articles order by category is zero
 
 # 2017-02-08 ============================================================
-* add nav
-* fix article detail page
-* improve UI of admin manager page
+* add nav OK
+* fix article detail page OK
+* improve UI of admin manager page TODO
 
 
