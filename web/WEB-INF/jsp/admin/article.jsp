@@ -10,8 +10,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>管理员</title>
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/admin.css?v=1" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
+    <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../common/nav.jsp"></jsp:include>
@@ -24,11 +25,11 @@
     <div class="control-wrap">
         <div class="control-nav">
             <ul class="control-ul">
-                <li><a class="control-nav-a active" href="/admin/article">文章管理</a></li>
-                <li><a class="control-nav-a" href="/admin/account">账号管理</a></li>
-                <li><a class="control-nav-a" href="/admin/category">分类管理</a></li>
-                <li><a class="control-nav-a" href="/admin/comment">评论管理</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts">草稿箱</a></li>
+                <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-bookmark-o"></i>articles</a></li>
+                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-bookmark-o"></i>account</a></li>
+                <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-bookmark-o"></i>category</a></li>
+                <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-bookmark-o"></i>comment</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-bookmark-o"></i>draft</a></li>
             </ul>
         </div>
         <div class="control-display">
