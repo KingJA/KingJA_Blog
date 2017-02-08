@@ -32,7 +32,8 @@
                     <span>${article.category}</span>
                 </p>
             </div>
-            <div class="content-wrap" id="article">${article.content}</div>
+            <div class="content-wrap" id="article"></div>
+            <input type="hidden" id="preContent" value="${article.content}">
         </div>
         <div class="left-comment-display block"><span class="side-title">评论(${fn:length(comments)})</span>
 
@@ -146,6 +147,7 @@
         true;
     }
     $(function () {
+        $("#article").hide();
         hljs.initHighlightingOnLoad();
         var md = window.markdownit({
             highlight: function (str, lang) {
@@ -159,8 +161,11 @@
                 return ''; // use external default escaping
             }
         });
-        var content = $("#article").text();
+
+        var content = $("#preContent").val();
         $("#article").html(md.render(content));
+
+        $("#article").show();
 
 
         $("input[type=text]").focus(function () {

@@ -38,7 +38,7 @@ web端技术选型
 * fix article order by date
 * fix invisible when the count of articles order by category is zero
 
-# 2017-02-07 ============================================================
+# 2017-02-08 ============================================================
 * add nav
 * fix article detail page
 * improve UI of admin manager page
