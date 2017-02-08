@@ -23,7 +23,7 @@ public class Month {
     private int count;
 
     public String getMonth() {
-        return DateUtil.StrTime2StrTime(month,"yyyy-MM","yyyy年M月");
+        return DateUtil.StrTime2EStrTime(month,"yyyy-MM","MMM,yyyy");
     }
 
     public void setMonth(String month) {

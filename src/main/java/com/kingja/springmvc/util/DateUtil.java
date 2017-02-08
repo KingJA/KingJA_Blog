@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtil {
 	public static String getDateTime(Object date){
@@ -60,11 +61,19 @@ public class DateUtil {
 		SimpleDateFormat df = new SimpleDateFormat(timeFormat);
 
 		return df.format(date);
+	}	public static String Date2EString(Date date, String timeFormat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeFormat, Locale.ENGLISH);
+		return df.format(date);
 	}
 
 	public static String StrTime2StrTime(String from,String fromFormat, String toFormat) {
 		Date fromDate = StrToDate(from, fromFormat);
 		return DateToStr(fromDate,toFormat);
+	}public static String StrTime2EStrTime(String from,String fromFormat, String toFormat) {
+		Date fromDate = StrToDate(from, fromFormat);
+		SimpleDateFormat format = new SimpleDateFormat(toFormat,Locale.ENGLISH);
+		String str = format.format(fromDate);
+		return str;
 	}
 
 	/**

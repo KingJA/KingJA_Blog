@@ -79,41 +79,7 @@
     </div>
 
 
-    <div class="side">
-        <div class="hot block">
-            <span class="side-title">热门文章</span>
-            <c:if test="${!empty hotArticles}">
-                <ul class="side-ul">
-                    <c:forEach items="${hotArticles}" var="hotArticle">
-                        <li class="side-li"><a href="/article/detail/${hotArticle.id}"
-                                               class="side-a">${hotArticle.title}</a></li>
-                    </c:forEach>
-                </ul>
-            </c:if>
-
-        </div>
-        <div class="hot block">
-            <span class="side-title">分类文章</span>
-            <ul class="side-ul">
-                <c:if test="${!empty categorys}">
-                    <c:forEach items="${categorys}" var="category">
-                        <li class="side-li"><a href="#" class="side-a">${category.name}(${category.count})</a></li>
-                    </c:forEach>
-                </c:if>
-            </ul>
-        </div>
-        <div class="hot block">
-            <span class="side-title">时间轴</span>
-
-            <c:if test="${!empty months}">
-                <ul class="side-ul">
-                    <c:forEach items="${months}" var="month">
-                        <li class="side-li"><a href="/article/date/${month.singleMonth}" class="side-a">${month.month}(${month.count})</a></li>
-                    </c:forEach>
-                </ul>
-            </c:if>
-        </div>
-    </div>
+    <jsp:include page="../common/right_side.jsp"/>
 
 
 </div>
@@ -125,7 +91,7 @@
 <script>
     function postComment() {
         if ($("#name").val() === $("#name").attr("default") || $("#name").val() === "") {
-            alert("大侠，好歹留个名吧");
+            alert("please input your nickname :D");
             return
         }
 
@@ -157,7 +123,6 @@
                     } catch (__) {
                     }
                 }
-
                 return ''; // use external default escaping
             }
         });

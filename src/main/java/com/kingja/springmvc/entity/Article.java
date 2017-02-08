@@ -48,7 +48,7 @@ public class Article {
     }
 
     public String getCreateTime() {
-        return DateUtil.getYearDay(createTime);
+        return DateUtil.Date2EString(createTime,"MMM d,yyyy");
     }
 
     public void setCreateTime(Date createTime) {
