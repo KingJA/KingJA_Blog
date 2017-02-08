@@ -19,13 +19,23 @@
 
 <div class="container">
 
-    <div class="admin-logo">${sessionScope.User.nick}
-        <p><a href="/article/publish">发布新文章</a></p>
+    <div class="admin-logo">
+        <div class="top_left">
+
+            <img src="/img/head.jpg" alt="" height="60" width="60" >
+
+
+
+        </div>
+        <div class="top_right"></div>
+
+
     </div>
     <div class="control-wrap">
         <div class="control-nav">
             <ul class="control-ul">
-                <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-bookmark-o"></i>articles</a></li>
+                <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-bookmark-o"></i>articles</a>
+                </li>
                 <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-bookmark-o"></i>account</a></li>
                 <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-bookmark-o"></i>category</a></li>
                 <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-bookmark-o"></i>comment</a></li>
