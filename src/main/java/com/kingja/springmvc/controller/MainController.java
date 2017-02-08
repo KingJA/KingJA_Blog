@@ -41,9 +41,9 @@ public class MainController {
      *
      * @return
      */
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
-        logger.error("home");
+        logger.error("home=====");
         ModelAndView modelAndView = new ModelAndView("/main/index");
         //1.获取文章列表
         Page2<Article> articlePage = adminService.getArticles(1, 5);

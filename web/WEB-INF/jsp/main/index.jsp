@@ -12,9 +12,8 @@
 </head>
 <body>
 
-<nav>
+<jsp:include page="../common/nav.jsp"></jsp:include>
 
-</nav>
 
 <div class="container">
     <div class="content block">

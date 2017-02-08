@@ -7,7 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav>
+    <div class="nav_content">
+        <a href="/" class="logo_title">KingJA</a>
 
-    <a href="/">首页</a>
+        <ul class="nav_menu">
+            <li> <a href="#">About me</a></li>
+            <li> <a href="#">About site</a></li>
+            <li> <a href="#">Shanggu</a></li>
 
+        </ul>
+    </div>
 </nav>
