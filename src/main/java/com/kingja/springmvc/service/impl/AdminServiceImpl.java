@@ -1,9 +1,9 @@
 package com.kingja.springmvc.service.impl;
 
 import com.kingja.springmvc.dao.AdminDao;
+import com.kingja.springmvc.entity.Account;
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.Comment;
-import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page;
 import com.kingja.springmvc.util.Page2;
@@ -83,9 +83,9 @@ public class AdminServiceImpl implements AdminService {
         return page2;
     }
 
-    public Page2<User> getAccount(int currentPage, int pageSize) {
-        List<User> articles = adminDao.getAccount();
-        Page2<User> page2 = new Page2<User>().setCurrentPage(currentPage)
+    public Page2<Account> getAccount(int currentPage, int pageSize) {
+        List<Account> articles = adminDao.getAccount();
+        Page2<Account> page2 = new Page2<Account>().setCurrentPage(currentPage)
                 .setPageSize(pageSize)
                 .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
                 .setAllDatas(articles);

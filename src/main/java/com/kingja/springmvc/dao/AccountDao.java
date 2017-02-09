@@ -1,6 +1,6 @@
 package com.kingja.springmvc.dao;
 
-import com.kingja.springmvc.entity.User;
+import com.kingja.springmvc.entity.Account;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +13,8 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 @Repository
-public interface UserDao {
+public interface AccountDao {
 
-    List<User> checkAdmin(@Param(value = "name") String name, @Param(value = "password") String password);
+    List<Account> checkAdmin(@Param(value = "name") String name, @Param(value = "password") String password);
 
 }

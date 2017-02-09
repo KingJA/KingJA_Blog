@@ -1,7 +1,7 @@
 package com.kingja.springmvc.controller;
 
 import com.kingja.springmvc.dao.AdminDao;
-import com.kingja.springmvc.dao.UserDao;
+import com.kingja.springmvc.dao.AccountDao;
 import com.kingja.springmvc.entity.*;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page2;
@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping(value = "/admin")
 public class AdminController {
     @Autowired
-    UserDao userDao;
+    AccountDao accountDao;
     @Autowired
     AdminDao adminDao;
 
@@ -55,12 +55,12 @@ public class AdminController {
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public JResult doLogin(@RequestParam("name") String name, @RequestParam("password") String password, HttpSession session) {
         JResult<Object> jResult = new JResult<Object>();
-        List<User> users = userDao.checkAdmin(name, password);
-        if (users.size() > 0) {//登录成功
+        List<Account> accounts = accountDao.checkAdmin(name, password);
+        if (accounts.size() > 0) {//登录成功
             jResult.setResultCode(0).setResultText("登录成功");
-            User user = users.get(0);
-            session.setAttribute("User", user);
-            logger.error(user.toString());
+            Account account = accounts.get(0);
+            session.setAttribute("User", account);
+            logger.error(account.toString());
         } else {
             jResult.setResultCode(4).setResultText("用户名或密码错误，请重新登录");
         }
@@ -105,7 +105,7 @@ public class AdminController {
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public ModelAndView account() {
         ModelAndView modelAndView = new ModelAndView("/admin/account");
-        Page2<User> accountPage = adminService.getAccount(1, 10);
+        Page2<Account> accountPage = adminService.getAccount(1, 10);
         modelAndView.addObject("accountPage", accountPage);
         return modelAndView;
     }
@@ -118,7 +118,7 @@ public class AdminController {
     @RequestMapping(value = "/account/{page}", method = RequestMethod.GET)
     public ModelAndView account(@PathVariable("page") int page) {
         ModelAndView modelAndView = new ModelAndView("/admin/account");
-        Page2<User> accountPage = adminService.getAccount(page, 10);
+        Page2<Account> accountPage = adminService.getAccount(page, 10);
         modelAndView.addObject("accountPage", accountPage);
         return modelAndView;
     }

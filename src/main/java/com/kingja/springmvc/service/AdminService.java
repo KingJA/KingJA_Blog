@@ -1,9 +1,9 @@
 package com.kingja.springmvc.service;
 
 
+import com.kingja.springmvc.entity.Account;
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.Comment;
-import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.util.Page;
 import com.kingja.springmvc.util.Page2;
 
@@ -20,5 +20,5 @@ public interface AdminService {
     Page2<Article> getArticlesByCategory(int currentPage, int pageSize,long categoryId);
     Page2<Article> getDraftsArticles(int currentPage, int pageSize);
     Page2<Comment> getComment(int currentPage, int pageSize);
-    Page2<User> getAccount(int currentPage, int pageSize);
+    Page2<Account> getAccount(int currentPage, int pageSize);
 }

@@ -1,5 +1,7 @@
 package com.kingja.springmvc.entity;
 
+import com.kingja.springmvc.util.DateUtil;
+
 import java.util.Date;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Date;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class User {
+public class Account {
     private long id;
     private String nick;
 
@@ -24,8 +26,8 @@ public class User {
     private Date createTime;
     private int role;
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCreateTime() {
+        return DateUtil.Date2EString(createTime,"MMM d,yyyy");
     }
 
     public void setCreateTime(Date createTime) {

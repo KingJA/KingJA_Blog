@@ -3,7 +3,7 @@ package com.kingja.springmvc.dao;
 import com.kingja.springmvc.entity.Article;
 import com.kingja.springmvc.entity.Category;
 import com.kingja.springmvc.entity.Comment;
-import com.kingja.springmvc.entity.User;
+import com.kingja.springmvc.entity.Account;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +23,7 @@ public interface AdminDao {
     List<Article> getAdminArticlesByCategory(@Param(value = "categoryId") long categoryId);
     List<Category> getAdminCategorys();
     List<Category> getCategorys();
-    List<User> getAccount();
+    List<Account> getAccount();
     List<Comment> getComment();
     List<Article> getDraftsArticles();
 

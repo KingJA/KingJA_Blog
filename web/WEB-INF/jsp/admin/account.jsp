@@ -48,7 +48,7 @@
                             <td class="f-14-gray">${account.name}</td>
                             <td class="f-14-gray">${account.role}</td>
                             <td class="f-14-gray">${account.createTime}</td>
-                            <td><a href="#">edit</a>&nbsp;|&nbsp;<a href="#">delete</a>&nbsp;|&nbsp; <a href="#">authority</a></td>
+                            <td><a href="javascript:void(0);" onclick="doDelete(${account.id})">delete</a>&nbsp;|&nbsp; <a href="#">authority</a></td>
 
                         </tr>
                     </c:forEach>
@@ -89,5 +89,29 @@
 
 </div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+<script src="/js/jquery-3.1.1.js"></script>
+<script>
+    function doDelete(id) {
+        $.ajax({
+                    type: "POST",
+                    url: "/admin/account/doDelete",
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        if (result.resultCode === 0) {
+                            window.location.reload();
+                        } else {
+                            alert(result.resultText);
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+        )
+    }
+</script>
 </body>
 </html>

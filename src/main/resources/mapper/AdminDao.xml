@@ -72,7 +72,7 @@
 
     </select>
 
-    <select id="getAccount" resultType="com.kingja.springmvc.entity.User">
+    <select id="getAccount" resultType="com.kingja.springmvc.entity.Account">
         SELECT id,name,role,createTime from user
         ORDER BY createTime DESC
     </select>

@@ -125,10 +125,10 @@ INSERT INTO `comment` VALUES ('11', 'Jordan', 'www', 'email', '我是评论11', 
 INSERT INTO `comment` VALUES ('12', 'Jordan', 'www', 'email', '我是评论12', '2017-01-16 16:52:35', '14', '0', '11');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for account
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE `account` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT '' COMMENT '用户名',
   `password` varchar(255) DEFAULT '' COMMENT '密码',
@@ -140,20 +140,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of user
+-- Records of account
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'aaa', 'bbb', 'KingJA Me', '0', '2017-01-09 10:49:18', '2017-01-09 11:13:38');
-INSERT INTO `user` VALUES ('2', 'bbb', 'bbb', 'jordon', '1', '2017-02-09 14:29:49', '2017-02-09 14:29:49');
-INSERT INTO `user` VALUES ('3', 'ccc', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:44');
-INSERT INTO `user` VALUES ('4', 'ddd', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:46');
-INSERT INTO `user` VALUES ('5', 'eee', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:47');
-INSERT INTO `user` VALUES ('6', 'ffff', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:49');
-INSERT INTO `user` VALUES ('7', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:52');
-INSERT INTO `user` VALUES ('8', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:55');
-INSERT INTO `user` VALUES ('9', 'kkkk', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:57');
-INSERT INTO `user` VALUES ('10', 'mmmm', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:59');
-INSERT INTO `user` VALUES ('11', 'nnnn', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:02');
-INSERT INTO `user` VALUES ('12', 'iiii', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:04');
-INSERT INTO `user` VALUES ('13', 'oooo', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:06');
-INSERT INTO `user` VALUES ('14', 'qqqq', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:15');
+INSERT INTO `account` VALUES ('1', 'aaa', 'bbb', 'KingJA Me', '0', '2017-01-09 10:49:18', '2017-01-09 11:13:38');
+INSERT INTO `account` VALUES ('2', 'bbb', 'bbb', 'jordon', '1', '2017-02-09 14:29:49', '2017-02-09 14:29:49');
+INSERT INTO `account` VALUES ('3', 'ccc', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:44');
+INSERT INTO `account` VALUES ('4', 'ddd', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:46');
+INSERT INTO `account` VALUES ('5', 'eee', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:47');
+INSERT INTO `account` VALUES ('6', 'ffff', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:49');
+INSERT INTO `account` VALUES ('7', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:52');
+INSERT INTO `account` VALUES ('8', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:55');
+INSERT INTO `account` VALUES ('9', 'kkkk', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:57');
+INSERT INTO `account` VALUES ('10', 'mmmm', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:59');
+INSERT INTO `account` VALUES ('11', 'nnnn', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:02');
+INSERT INTO `account` VALUES ('12', 'iiii', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:04');
+INSERT INTO `account` VALUES ('13', 'oooo', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:06');
+INSERT INTO `account` VALUES ('14', 'qqqq', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:15');
 SET FOREIGN_KEY_CHECKS=1;
