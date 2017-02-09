@@ -48,7 +48,7 @@ i {
 }
 
 .control-display {
-    padding: 12px;
+    padding: 20px 20px 20px 20px;
     min-height: 600px;
     width: 80%;
     background: #ffffff;
@@ -174,8 +174,12 @@ float: left;
     border-radius: 3px;
     text-decoration: none;
 }
+.pager_a:hover{
+    background: #EEEEEE;
+}
 
 .pager_action{
+    cursor: default;
     display: inline-block;
     padding:.6em 1em .6em 1em ;
     background: #00A8B3;

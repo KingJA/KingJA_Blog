@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/admin.css?v=2" rel="stylesheet">
-    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/admin.css?v=1" rel="stylesheet">
+    <link href="/css/base.css?v=1" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="container_shadow">
     <div class="admin-logo">
         <div class="top_left">
             <img src="/img/head2.jpg" alt="" height="80px" width="80px" class="head_icon">
@@ -30,7 +30,7 @@
                 <li><a class="control-nav-a active" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
                 <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
                 <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>drafts</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -69,7 +69,7 @@
                                end="${accountPage.pageEnd}">
 
                         <c:if test="${accountPage.currentPage==x}">
-                            <li ><a href="javascript:return false;" class="pager_a pager_action">${x}</a></li>
+                            <li ><a href="javascript:(0);" class="pager_action">${x}</a></li>
                         </c:if>
                         <c:if test="${accountPage.currentPage!=x}">
                             <li><a href="/admin/account/${x}" class="pager_a">${x}</a></li>

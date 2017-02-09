@@ -11,11 +11,11 @@
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
     <link href="/css/admin.css?v=1" rel="stylesheet">
-    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/base.css?v=1" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="container_shadow">
 
     <div class="admin-logo">
         <div class="top_left">
@@ -35,7 +35,7 @@
                 <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
                 <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
                 <li><a class="control-nav-a active" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>drafts</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -56,7 +56,7 @@
                             <td class="t-left f-14-gray">${comment.content}</td>
                             <td class="f-14-gray">${comment.name}</td>
                             <td class="f-14-gray">${comment.createTime}</td>
-                            <td><a href="#">delete</a></td>
+                            <td><a href="javascript:void(0);" onclick="doDelete(${comment.id})">delete</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
@@ -74,7 +74,7 @@
                                end="${commentPage.pageEnd}">
 
                         <c:if test="${commentPage.currentPage==x}">
-                            <li ><a href="javascript:return false;" class="pager_a pager_action">${x}</a></li>
+                            <li><a href="javascript:(0);" class="pager_action">${x}</a></li>
                         </c:if>
                         <c:if test="${commentPage.currentPage!=x}">
                             <li><a href="/admin/comment/${x}" class="pager_a">${x}</a></li>
@@ -95,5 +95,29 @@
 
 </div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+<script src="/js/jquery-3.1.1.js"></script>
+<script>
+    function doDelete(id) {
+        $.ajax({
+                    type: "POST",
+                    url: "/admin/comment/doDelete",
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        if (result.resultCode === 0) {
+                            window.location.reload();
+                        } else {
+                            alert(result.resultText);
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+        )
+    }
+</script>
 </body>
 </html>

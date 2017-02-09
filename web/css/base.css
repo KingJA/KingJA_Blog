@@ -43,35 +43,39 @@ nav {
     height: 60px;
     background: #eea236;
 }
-.nav_content{
-    width:70%;
+
+.nav_content {
+    width: 70%;
     height: 60px;
     margin: 0 auto;
 }
+
 .nav_menu {
     box-sizing: content-box;
     height: 60px;
     line-height: 60px;
-    float:right;
+    float: right;
 
-}.nav_menu li {
-    float:right;
+}
+
+.nav_menu li {
+    float: right;
     margin-left: 1.5em;
 }
-.nav_menu li a{
+
+.nav_menu li a {
     text-decoration: none;
     display: inline-block;
     font-family: taiji;
     color: #ffffff;
 }
 
-.nav_menu li a:hover{
+.nav_menu li a:hover {
     text-decoration: none;
     color: #3d93dc;
 }
 
-
-.logo_title{
+.logo_title {
     color: #ffffff;
     text-decoration: none;
     line-height: 60px;
@@ -80,7 +84,8 @@ nav {
     font-size: 1.5em;
     transition-duration: 0.3s;
 }
-.logo_title:hover{
+
+.logo_title:hover {
     color: #eeeeee;
     text-decoration: none;
     margin-left: .5em;
@@ -88,6 +93,13 @@ nav {
 
 /*居中文字*/
 .container {
+    overflow: hidden;
+    margin: 20px auto;
+    width: 75%;
+}
+
+.container_shadow {
+    box-shadow: 4px 4px 4px #c6c6c6;
     overflow: hidden;
     margin: 20px auto;
     width: 75%;
@@ -177,6 +189,7 @@ nav {
 .align-right {
     text-align: right;
 }
-.margin-right-1{
+
+.margin-right-1 {
     margin-right: 1em;
 }

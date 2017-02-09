@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/admin.css?v=1" rel="stylesheet">
-    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/admin.css?v=2" rel="stylesheet">
+    <link href="/css/base.css?v=1" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="container_shadow">
 
     <div class="admin-logo">
         <div class="top_left">
@@ -31,7 +31,7 @@
                 <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
                 <li><a class="control-nav-a active" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
                 <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>drafts</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -64,8 +64,9 @@
             </table>
 
             <div>
-                <input type="text" name="name" id="category-name"><a href="javascript:void(0);" class="none-line-a"
-                                                                     onclick="addCategory()">add category</a>
+                <p class="align-center">
+                    <input type="text" name="name" id="category-name"><a href="javascript:void(0);" class="none-line-a"
+                                                                         onclick="addCategory()">add category</a></p>
 
             </div>
 
@@ -86,20 +87,20 @@
         $("#name-" + id).text(name);
 
         $.ajax({
-            url:"/admin/editCategory",
-            type:"POST",
-            data:{
-                id:id,
-                name:name
+            url: "/admin/editCategory",
+            type: "POST",
+            data: {
+                id: id,
+                name: name
             },
-            dataType:"json",
-            success:function (result) {
+            dataType: "json",
+            success: function (result) {
                 if (result.resultCode === 0) {
                 } else {
                     alert(result.resultText);
                 }
             },
-             error:function () {
+            error: function () {
 
             },
 

@@ -7,11 +7,11 @@
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
     <link href="/css/admin.css?v=1" rel="stylesheet">
-    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/base.css?v=1" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="container_shadow">
 
     <div class="admin-logo">
         <div class="top_left">
@@ -31,7 +31,7 @@
                 <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
                 <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
                 <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
-                <li><a class="control-nav-a active" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
+                <li><a class="control-nav-a active" href="/admin/drafts"><i class="fa fa-clipboard"></i>drafts</a></li>
             </ul>
         </div>
         <div class="control-display">
@@ -53,41 +53,39 @@
                             <td class="f-14-gray">${article.readCount}</td>
                             <td class="f-14-gray">${article.commentCount}</td>
                             <td><a href="/article/edit/${article.id}">edit</a>|<a href="javascript:void(0);"
-                                                                                            onclick="doDelete(${article.id})">delete</a>
+                                                                                  onclick="doDelete(${article.id})">delete</a>
                             </td>
                         </tr>
                     </c:forEach>
                 </c:if>
             </table>
-            <c:if test="${articlePage.hasNext}">
-                <div class="pager">
-                    <ul class="pager_ul">
-                        <c:if test="${articlePage.hasPrevious}">
-                            <li>
-                                <a href="/admin/article/${articlePage.previousPage}" class="pager_a">&laquo;上一页</a>
-                            </li>
+            <div class="pager">
+                <ul class="pager_ul">
+                    <c:if test="${articlePage.hasPrevious}">
+                        <li>
+                            <a href="/admin/drafts/${articlePage.previousPage}" class="pager_a">&laquo;上一页</a>
+                        </li>
+                    </c:if>
+
+                    <c:forEach var="x" begin="${articlePage.pageStart}"
+                               end="${articlePage.pageEnd}">
+
+                        <c:if test="${articlePage.currentPage==x}">
+                            <li><a href="javascript:(0);" class="pager_action">${x}</a></li>
                         </c:if>
-
-                        <c:forEach var="x" begin="${articlePage.pageStart}"
-                                   end="${articlePage.pageEnd}">
-
-                            <c:if test="${articlePage.currentPage==x}">
-                                <li ><a href="javascript:return false;" class="pager_a pager_action">${x}</a></li>
-                            </c:if>
-                            <c:if test="${articlePage.currentPage!=x}">
-                                <li><a href="/admin/article/${x}" class="pager_a">${x}</a></li>
-                            </c:if>
-                        </c:forEach>
-
-
-                        <c:if test="${articlePage.hasNext}">
-                            <li><a href="/admin/article/${articlePage.nextPage}" class="pager_a">下一页&raquo;</a>
-                            </li>
+                        <c:if test="${articlePage.currentPage!=x}">
+                            <li><a href="/admin/drafts/${x}" class="pager_a">${x}</a></li>
                         </c:if>
-                    </ul>
+                    </c:forEach>
 
-                </div>
-            </c:if>
+
+                    <c:if test="${articlePage.hasNext}">
+                        <li><a href="/admin/drafts/${articlePage.nextPage}" class="pager_a">下一页&raquo;</a>
+                        </li>
+                    </c:if>
+                </ul>
+
+            </div>
 
         </div>
     </div>

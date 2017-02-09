@@ -124,7 +124,7 @@ public class AdminController {
     }
 
     /**
-     * 草稿箱
+     * 草稿箱- 首页
      *
      * @return
      */
@@ -132,6 +132,19 @@ public class AdminController {
     public ModelAndView drafts() {
         ModelAndView modelAndView = new ModelAndView("/admin/drafts");
         Page2<Article> articlePage = adminService.getDraftsArticles(1, 10);
+        modelAndView.addObject("articlePage", articlePage);
+        return modelAndView;
+    }
+
+    /**
+     * 草稿箱- 分页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/drafts/{page}", method = RequestMethod.GET)
+    public ModelAndView drafts(@PathVariable("page") int page) {
+        ModelAndView modelAndView = new ModelAndView("/admin/drafts");
+        Page2<Article> articlePage = adminService.getDraftsArticles(page, 10);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
@@ -227,6 +240,25 @@ public class AdminController {
     public JResult editCategory(@RequestParam("id") long id, @RequestParam("name") String name) {
         JResult<Object> jResult = new JResult<Object>();
         int effectLine = adminDao.editCategory(id, name);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
+
+    /**
+     * 评论 删除
+     *
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/comment/doDelete", method = RequestMethod.POST)
+    public JResult doDelete(@RequestParam("id") long id) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = adminDao.deleteComment(id);
         if (effectLine > 0) {
             jResult.setResultCode(0);
         } else {
