@@ -6,32 +6,41 @@
     <meta charset="UTF-8">
     <title>管理员</title>
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/admin.css?v=1" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
 </head>
 <body>
-<nav></nav>
 
 <div class="container">
 
-    <div class="admin-logo"></div>
+    <div class="admin-logo">
+        <div class="top_left">
+            <img src="/img/head2.jpg" alt="" height="80px" width="80px" class="head_icon">
+            <div class="top_left_text">
+                <p class="name">KingJA</p>
+                <p class="role">software engineer</p>
+            </div>
+        </div>
+        <div class="top_right"></div>
+    </div>
     <div class="control-wrap">
         <div class="control-nav">
-            <ul>
-                <li><a class="control-nav-a" href="/admin/article">文章管理</a></li>
-                <li><a class="control-nav-a" href="/admin/account">账号管理</a></li>
-                <li><a class="control-nav-a active" href="/admin/category">分类管理</a></li>
-                <li><a class="control-nav-a" href="/admin/comment">评论管理</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts">草稿箱</a></li>
+            <ul class="control-ul">
+                <li><a class="control-nav-a" href="/admin/article"><i class="fa fa-file-text"></i>articles</a>
+                </li>
+                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
+                <li><a class="control-nav-a active" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
+                <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
             </ul>
         </div>
         <div class="control-display">
 
             <table cellspacing="0">
                 <tr class="th-title">
-                    <th class="col-w-33">类别</th>
-                    <th class="col-w-33">文章</th>
-                    <th class="col-w-33">操作</th>
+                    <th class="col-w-33">category</th>
+                    <th class="col-w-33">count</th>
+                    <th class="col-w-33">operation</th>
                 </tr>
                 <c:if test="${!empty categorys}">
                     <c:forEach items="${categorys}" var="category">
@@ -41,14 +50,14 @@
                                 <span id="edit-${category.id}" style="display: none">
                                     <input id="input-${category.id}" type="text" maxlength="20"
                                            value="${category.name}">&nbsp;
-                                    <a href="javascript:void(0)" class="none-line-a" onclick="saveEdit(${category.id})">保存&nbsp;</a>
+                                    <a href="javascript:void(0)" class="none-line-a" onclick="saveEdit(${category.id})">save&nbsp;</a>
                                     <a href="javascript:void(0)" class="none-line-a"
-                                       onclick="cancleEdit(${category.id})">取消</a>
+                                       onclick="cancleEdit(${category.id})">cancle</a>
                                 </span>
                             </td>
                             <td><a href="#">${category.count}</a></td>
-                            <td><a href="#" onclick="javascript:editCategory(${category.id});return false;">编辑</a>|<a
-                                    href="javascript:void(0)" onclick="deleteCategory(${category.id})">删除</a></td>
+                            <td><a href="#" onclick="javascript:editCategory(${category.id});return false;">edit</a>|<a
+                                    href="javascript:void(0)" onclick="deleteCategory(${category.id})">delete</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
@@ -56,7 +65,7 @@
 
             <div>
                 <input type="text" name="name" id="category-name"><a href="javascript:void(0);" class="none-line-a"
-                                                                     onclick="addCategory()">添加分类</a>
+                                                                     onclick="addCategory()">add category</a>
 
             </div>
 
@@ -67,15 +76,7 @@
 </div>
 
 
-<footer>
-
-    <p>当前在线人数(<span class="f-14-blue">1228</span>)</p>
-    <p>历史访问人数(<span class="f-14-blue">825275</span>)</p>
-    <p>© 2017 KingJA</p>
-    <p>由 KingJA 强力驱动 主题 - KingJA.Genesis</p>
-
-
-</footer>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 <script src="/js/jquery-3.1.1.js"></script>
 <script>
     function saveEdit(id) {

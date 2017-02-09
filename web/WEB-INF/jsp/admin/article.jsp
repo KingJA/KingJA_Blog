@@ -15,58 +15,53 @@
     <link href="/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../common/nav.jsp"></jsp:include>
 
 <div class="container">
-
     <div class="admin-logo">
         <div class="top_left">
-
-            <img src="/img/head.jpg" alt="" height="60" width="60" >
-
-
-
+            <img src="/img/head2.jpg" alt="" height="80px" width="80px" class="head_icon">
+            <div class="top_left_text">
+                <p class="name">KingJA</p>
+                <p class="role">software engineer</p>
+            </div>
         </div>
         <div class="top_right"></div>
-
-
     </div>
     <div class="control-wrap">
         <div class="control-nav">
             <ul class="control-ul">
-                <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-bookmark-o"></i>articles</a>
+                <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-file-text"></i>articles</a>
                 </li>
-                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-bookmark-o"></i>account</a></li>
-                <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-bookmark-o"></i>category</a></li>
-                <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-bookmark-o"></i>comment</a></li>
-                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-bookmark-o"></i>draft</a></li>
+                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
+                <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
+                <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
+                <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>draft</a></li>
             </ul>
         </div>
         <div class="control-display">
-
             <table cellspacing="0">
                 <tr class="th-title">
-                    <th class="col-w-6">标题</th>
-                    <th class="col-w-1">阅读数</th>
-                    <th class="col-w-1">评论数</th>
-                    <th class="col-w-2">操作</th>
+                    <th class="col-w-6">title</th>
+                    <th class="col-w-1">read</th>
+                    <th class="col-w-1">comment</th>
+                    <th class="col-w-2">operation</th>
                 </tr>
                 <c:if test="${!empty articlePage.pageDatas}">
                     <c:forEach items="${articlePage.pageDatas}" var="article">
                         <tr>
                             <td class="t-left"><a href="#">${article.title}</a><span>(${article.createTime})</span>
                             </td>
-                            <td>${article.readCount}</td>
-                            <td>${article.commentCount}</td>
-                            <td><a href="/article/edit/${article.id}">编辑</a>
+                            <td class="f-14-gray">${article.readCount}</td>
+                            <td class="f-14-gray">${article.commentCount}</td>
+                            <td><a href="/article/edit/${article.id}">edit</a>
                                 <c:if test="${article.top==0}">
-                                    <a href="javascript:void(0);" onclick="setTop(${article.id},1)">|置顶</a>
+                                    <a href="javascript:void(0);" onclick="setTop(${article.id},1)">|top</a>
                                 </c:if>
 
                                 <c:if test="${article.top==1}">
-                                    <a href="javascript:void(0);" onclick="setTop(${article.id},0)">|取消置顶</a>
+                                    <a href="javascript:void(0);" onclick="setTop(${article.id},0)">|unTop</a>
                                 </c:if>
-                                <a href="javascript:void(0);" onclick="doDelete(${article.id})">|删除</a></td>
+                                <a href="javascript:void(0);" onclick="doDelete(${article.id})">|delete</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>

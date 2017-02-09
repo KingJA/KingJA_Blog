@@ -7,14 +7,32 @@ i {
 }
 
 .top_left {
+    border-radius: 4px 0 0 0;
     float: left;
     background: #00A8B3;
     width: 20%;
     height: 100px;
+    padding:10px;
+    box-sizing: border-box;
+}
+.top_left_text{
+    margin-top: 20px;
+    float: left;
+    margin-left: .8em;
+}
+.name{
+    color: #ffffff;
+}.role{
+    color: #76DEDA;
+}
 
+.head_icon{
+    float: left;
+    border-radius: 4px;
 }
 
 .top_right {
+    border-radius: 0 4px  0 0;
     width: 80%;
     height: 100px;
     background: #41CAC0;
