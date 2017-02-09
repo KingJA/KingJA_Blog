@@ -2,6 +2,8 @@ package com.kingja.springmvc.service.impl;
 
 import com.kingja.springmvc.dao.AdminDao;
 import com.kingja.springmvc.entity.Article;
+import com.kingja.springmvc.entity.Comment;
+import com.kingja.springmvc.entity.User;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page;
 import com.kingja.springmvc.util.Page2;
@@ -66,6 +68,24 @@ public class AdminServiceImpl implements AdminService {
     public Page2<Article> getDraftsArticles(int currentPage, int pageSize) {
         List<Article> articles = adminDao.getDraftsArticles();
         Page2<Article> page2 = new Page2<Article>().setCurrentPage(currentPage)
+                .setPageSize(pageSize)
+                .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
+                .setAllDatas(articles);
+        return page2;
+    }
+
+    public Page2<Comment> getComment(int currentPage, int pageSize) {
+        List<Comment> articles = adminDao.getComment();
+        Page2<Comment> page2 = new Page2<Comment>().setCurrentPage(currentPage)
+                .setPageSize(pageSize)
+                .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
+                .setAllDatas(articles);
+        return page2;
+    }
+
+    public Page2<User> getAccount(int currentPage, int pageSize) {
+        List<User> articles = adminDao.getAccount();
+        Page2<User> page2 = new Page2<User>().setCurrentPage(currentPage)
                 .setPageSize(pageSize)
                 .setVisiblePages(Page.DEFAULT_VISIBLE_PAGE_SIZE)
                 .setAllDatas(articles);

@@ -15,15 +15,24 @@ import java.util.List;
  */
 public class Comment {
     private long id;
-    private long articleId;
+    private String title;
     private String name;
+    private long articleId;
+    private Date createTime;
+    private String content;
     private String email;
     private String site;
-    private String content;
-    private Date createTime;
     private long childId;/*下级评论id*/
     private long fatherId;/*上级评论id*/
     private static Logger logger = Logger.getLogger(Comment.class);
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public Comment getChildComment() {
         return childComment;
     }
@@ -56,16 +65,6 @@ public class Comment {
     private List<Comment> childComments=new ArrayList<Comment>();/*下级评论*/
 
 
-    public void addChildComment(List<Comment> comments) {
-        if (this.childId != 0) {
-            logger.error("childId:"+childId+" fatherId:"+fatherId);
-            comments.add(childComment);
-            Comment childComment = getChildComment();
-            childComment.addChildComment(comments);
-        }else{
-            this.childComments.add(this);
-        }
-    }
 
 
     public long getId() {
@@ -126,7 +125,7 @@ public class Comment {
     }
 
     public String getCreateTime() {
-        return DateUtil.getFormatTime(createTime,"yyyy年MM月dd日 HH:mm:ss");
+        return DateUtil.Date2EString(createTime,"MMM d,yyyy");
     }
 
     public void setCreateTime(Date createTime) {

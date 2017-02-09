@@ -31,7 +31,7 @@
             </div>
         </c:forEach>
     </c:if>
-    <div>
+    <div class="pager">
         <ul class="pagination">
             <c:if test="${articlePage.hasPrevious}">
                 <li>

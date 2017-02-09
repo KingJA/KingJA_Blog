@@ -72,13 +72,27 @@
 
     </select>
 
-    <insert id="addCategory" >
+    <select id="getAccount" resultType="com.kingja.springmvc.entity.User">
+        SELECT id,name,role,createTime from user
+        ORDER BY createTime DESC
+    </select>
+
+    <select id="getComment" resultType="com.kingja.springmvc.entity.Comment">
+      select article.title,`comment`.`name`,`comment`.content,`comment`.createTime,`comment`.id
+FROM `comment`
+LEFT JOIN article
+ON `comment`.articleId=article.id
+ORDER BY
+`comment`.createTime DESC
+    </select>
+
+    <insert id="addCategory">
         INSERT INTO category (name) VALUES (#{name})
     </insert>
-    <delete id="deleteCategory" >
+    <delete id="deleteCategory">
        DELETE FROM category WHERE id =#{id}
     </delete>
-    <update id="editCategory" >
+    <update id="editCategory">
        UPDATE category SET name=#{name} WHERE id =#{id}
     </update>
 

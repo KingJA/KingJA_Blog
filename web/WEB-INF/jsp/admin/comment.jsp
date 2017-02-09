@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,16 +48,47 @@
                     <th class="col-w-2">date</th>
                     <th class="col-w-1">operation</th>
                 </tr>
-                <tr>
-                    <td class="t-left f-14-gray">性能测试应该怎么做？</td>
-                    <td class="t-left f-14-gray">感谢分享</td>
-                    <td class="f-14-gray">Mike</td>
-                    <td class="f-14-gray">2016-01-15 10:25:40</td>
-                    <td><a href="#">delete</a></td>
 
-                </tr>
+                <c:if test="${!empty commentPage.pageDatas}">
+                    <c:forEach items="${commentPage.pageDatas}" var="comment">
+                        <tr>
+                            <td class="t-left f-14-gray">${comment.title}</td>
+                            <td class="t-left f-14-gray">${comment.content}</td>
+                            <td class="f-14-gray">${comment.name}</td>
+                            <td class="f-14-gray">${comment.createTime}</td>
+                            <td><a href="#">delete</a></td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
+
             </table>
+            <div class="pager">
+                <ul class="pager_ul">
+                    <c:if test="${commentPage.hasPrevious}">
+                        <li>
+                            <a href="/admin/comment/${commentPage.previousPage}" class="pager_a">&laquo;上一页</a>
+                        </li>
+                    </c:if>
 
+                    <c:forEach var="x" begin="${commentPage.pageStart}"
+                               end="${commentPage.pageEnd}">
+
+                        <c:if test="${commentPage.currentPage==x}">
+                            <li ><a href="javascript:return false;" class="pager_a pager_action">${x}</a></li>
+                        </c:if>
+                        <c:if test="${commentPage.currentPage!=x}">
+                            <li><a href="/admin/comment/${x}" class="pager_a">${x}</a></li>
+                        </c:if>
+                    </c:forEach>
+
+
+                    <c:if test="${commentPage.hasNext}">
+                        <li><a href="/admin/comment/${commentPage.nextPage}" class="pager_a">下一页&raquo;</a>
+                        </li>
+                    </c:if>
+                </ul>
+
+            </div>
 
         </div>
     </div>

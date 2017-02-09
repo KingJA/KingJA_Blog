@@ -66,6 +66,35 @@
                     </c:forEach>
                 </c:if>
             </table>
+            <c:if test="${articlePage.hasNext}">
+                <div class="pager">
+                    <ul class="pager_ul">
+                        <c:if test="${articlePage.hasPrevious}">
+                            <li>
+                                <a href="/admin/article/${articlePage.previousPage}" class="pager_a">&laquo;上一页</a>
+                            </li>
+                        </c:if>
+
+                        <c:forEach var="x" begin="${articlePage.pageStart}"
+                                   end="${articlePage.pageEnd}">
+
+                            <c:if test="${articlePage.currentPage==x}">
+                                <li ><a href="javascript:return false;" class="pager_a pager_action">${x}</a></li>
+                            </c:if>
+                            <c:if test="${articlePage.currentPage!=x}">
+                                <li><a href="/admin/article/${x}" class="pager_a">${x}</a></li>
+                            </c:if>
+                        </c:forEach>
+
+
+                        <c:if test="${articlePage.hasNext}">
+                            <li><a href="/admin/article/${articlePage.nextPage}" class="pager_a">下一页&raquo;</a>
+                            </li>
+                        </c:if>
+                    </ul>
+
+                </div>
+            </c:if>
 
         </div>
     </div>

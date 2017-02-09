@@ -2,10 +2,7 @@ package com.kingja.springmvc.controller;
 
 import com.kingja.springmvc.dao.AdminDao;
 import com.kingja.springmvc.dao.UserDao;
-import com.kingja.springmvc.entity.Article;
-import com.kingja.springmvc.entity.Category;
-import com.kingja.springmvc.entity.JResult;
-import com.kingja.springmvc.entity.User;
+import com.kingja.springmvc.entity.*;
 import com.kingja.springmvc.service.AdminService;
 import com.kingja.springmvc.util.Page2;
 import org.apache.log4j.Logger;
@@ -37,6 +34,7 @@ public class AdminController {
 
     /**
      * 登录界面
+     *
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -47,6 +45,7 @@ public class AdminController {
 
     /**
      * 登录逻辑
+     *
      * @param name
      * @param password
      * @param session
@@ -71,19 +70,21 @@ public class AdminController {
 
     /**
      * 文章列表 - 首页
+     *
      * @return
      */
     @RequestMapping(value = "/article", method = RequestMethod.GET)
     public ModelAndView article() {
         logger.error("article");
         ModelAndView modelAndView = new ModelAndView("/admin/article");
-        Page2<Article> articlePage = adminService.getArticles(1, 5);
+        Page2<Article> articlePage = adminService.getArticles(1, 10);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
 
     /**
      * 文章列表
+     *
      * @param page
      * @return
      */
@@ -91,59 +92,94 @@ public class AdminController {
     public ModelAndView articleByPage(@PathVariable("page") int page) {
         logger.error("articleByPage");
         ModelAndView modelAndView = new ModelAndView("/admin/article");
-        Page2<Article> articlePage = adminService.getArticles(page, 5);
+        Page2<Article> articlePage = adminService.getArticles(page, 10);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
 
     /**
-     * 账号列表
+     * 账号列表 - 首页
+     *
      * @return
      */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public ModelAndView account() {
         ModelAndView modelAndView = new ModelAndView("/admin/account");
+        Page2<User> accountPage = adminService.getAccount(1, 10);
+        modelAndView.addObject("accountPage", accountPage);
+        return modelAndView;
+    }
+
+    /**
+     * 账号列表
+     *
+     * @return
+     */
+    @RequestMapping(value = "/account/{page}", method = RequestMethod.GET)
+    public ModelAndView account(@PathVariable("page") int page) {
+        ModelAndView modelAndView = new ModelAndView("/admin/account");
+        Page2<User> accountPage = adminService.getAccount(page, 10);
+        modelAndView.addObject("accountPage", accountPage);
         return modelAndView;
     }
 
     /**
      * 草稿箱
+     *
      * @return
      */
     @RequestMapping(value = "/drafts", method = RequestMethod.GET)
     public ModelAndView drafts() {
         ModelAndView modelAndView = new ModelAndView("/admin/drafts");
-        Page2<Article> articlePage = adminService.getDraftsArticles(1, 5);
+        Page2<Article> articlePage = adminService.getDraftsArticles(1, 10);
         modelAndView.addObject("articlePage", articlePage);
         return modelAndView;
     }
 
     /**
-     * 评论列表
+     * 评论列表-首页
+     *
      * @return
      */
     @RequestMapping(value = "/comment", method = RequestMethod.GET)
     public ModelAndView comment() {
         ModelAndView modelAndView = new ModelAndView("/admin/comment");
+        Page2<Comment> commentPage = adminService.getComment(1, 10);
+        modelAndView.addObject("commentPage", commentPage);
+        return modelAndView;
+    }
+
+    /**
+     * 评论列表-分页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/comment/{page}", method = RequestMethod.GET)
+    public ModelAndView comment(@PathVariable("page") int page) {
+        ModelAndView modelAndView = new ModelAndView("/admin/comment");
+        Page2<Comment> commentPage = adminService.getComment(page, 10);
+        modelAndView.addObject("commentPage", commentPage);
         return modelAndView;
     }
 
     /**
      * 分类列表
+     *
      * @return
      */
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public ModelAndView category() {
         ModelAndView modelAndView = new ModelAndView("/admin/category");
         List<Category> categorys = adminDao.getAdminCategorys();
-        logger.error("categorys数量："+categorys.size());
-        modelAndView.addObject("categorys",categorys);
+        logger.error("categorys数量：" + categorys.size());
+        modelAndView.addObject("categorys", categorys);
         return modelAndView;
     }
 
 
     /**
      * 添加分类
+     *
      * @param name
      * @return
      */
@@ -162,6 +198,7 @@ public class AdminController {
 
     /**
      * 删除分类
+     *
      * @param id
      * @return
      */
@@ -179,17 +216,17 @@ public class AdminController {
     }
 
     /**
-     *
      * 编辑分类
+     *
      * @param id
      * @param name
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/editCategory", method = RequestMethod.POST)
-    public JResult editCategory(@RequestParam("id") long id,@RequestParam("name") String name) {
+    public JResult editCategory(@RequestParam("id") long id, @RequestParam("name") String name) {
         JResult<Object> jResult = new JResult<Object>();
-        int effectLine = adminDao.editCategory(id,name);
+        int effectLine = adminDao.editCategory(id, name);
         if (effectLine > 0) {
             jResult.setResultCode(0);
         } else {
