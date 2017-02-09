@@ -41,7 +41,10 @@ web端技术选型
 # 2017-02-08 ============================================================
 * add nav OK
 * fix article detail page OK
-* improve UI of admin manager page TODO
+* improve UI of admin manager page ...
+
+# 2017-02-09 ============================================================
+* improve UI of admin manager page ...
 
 
 

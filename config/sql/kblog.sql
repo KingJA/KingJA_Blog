@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2017-02-07 17:13:42
+Date: 2017-02-09 17:13:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,7 @@ CREATE TABLE `article` (
   PRIMARY KEY (`id`),
   KEY `article_ibfk_1` (`categoryId`),
   CONSTRAINT `article_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of article
@@ -43,7 +43,6 @@ CREATE TABLE `article` (
 INSERT INTO `article` VALUES ('1', '1', '怎么写一篇高逼格的技术文章1', '正如标题所言，到底怎么写呢', '2017-01-07 11:15:54', '2017-02-07 13:45:57', '456', '0', '6', 'KingJA', '1', '0');
 INSERT INTO `article` VALUES ('2', '1', '怎么写一篇高逼格的技术文章2', '正如标题所言，到底怎么写呢', '2016-11-01 11:16:35', '2017-01-11 13:24:13', '574', '0', '6', 'KingJA', '1', '0');
 INSERT INTO `article` VALUES ('3', '1', '怎么写一篇高逼格的技术文章3', '正如标题所言，到底怎么写呢', '2016-06-01 11:16:36', '2017-01-11 13:24:13', '654', '0', '8', 'KingJA', '1', '0');
-INSERT INTO `article` VALUES ('4', '1', '怎么写一篇高逼格的技术文章4', '正如标题所言，到底怎么写呢', '2016-08-01 11:16:37', '2017-01-11 13:24:13', '45', '0', '8', 'KingJA', '1', '0');
 INSERT INTO `article` VALUES ('5', '1', '怎么写一篇高逼格的技术文章5', '正如标题所言，到底怎么写呢', '2016-12-01 11:16:37', '2017-01-11 13:24:13', '765', '0', '6', 'KingJA', '1', '0');
 INSERT INTO `article` VALUES ('7', '1', '怎么卖掉一只猪', '# 第三方地方', '2016-11-01 15:15:29', '2017-02-07 13:47:38', '5675', '0', '6', 'KingJA', '1', '0');
 INSERT INTO `article` VALUES ('8', '1', 'sdfsd', '# fdsf d ', '2016-08-01 15:18:57', '2017-01-11 13:24:13', '456', '0', '7', 'KingJA', '1', '0');
@@ -53,6 +52,18 @@ INSERT INTO `article` VALUES ('14', '1', 'js 闭包函数的若干种写法', '`
 INSERT INTO `article` VALUES ('17', '1', '测试保存文章2', '# 测试保存文章2', '2017-01-11 13:19:02', '2017-01-11 13:19:02', '0', '0', '13', 'KingJA', '0', '0');
 INSERT INTO `article` VALUES ('19', '1', '测试保存啊啊啊', '测试保存啊啊啊', '2017-01-11 13:22:54', '2017-01-11 13:24:27', '0', '0', '13', 'KingJA', '0', '0');
 INSERT INTO `article` VALUES ('24', '1', '先搞一篇模式文章保存111', '先搞一篇模式文章保存', '2017-01-11 14:47:00', '2017-01-11 15:48:11', '0', '0', '13', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('25', '1', '标题1', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:21', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('26', '1', '标题2', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:21', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('27', '1', '标题3', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:22', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('28', '1', '标题4', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:23', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('29', '1', '标题5', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:24', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('30', '1', '标题6', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:24', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('31', '1', '标题7', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:25', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('32', '1', '标题8', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:26', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('33', '1', '标题9', '内容', '2017-02-09 16:08:59', '2017-02-09 16:09:44', '0', '0', '999', 'KingJA', '1', '0');
+INSERT INTO `article` VALUES ('34', '1', '标题10', '内容', '2017-02-09 16:09:39', '2017-02-09 16:10:03', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('35', '1', '标题11', '内容', '2017-02-09 16:09:39', '2017-02-09 16:10:04', '0', '0', '999', 'KingJA', '0', '0');
+INSERT INTO `article` VALUES ('36', '1', '标题12', '内容', '2017-02-09 16:09:39', '2017-02-09 16:10:10', '0', '0', '999', 'KingJA', '1', '0');
 
 -- ----------------------------
 -- Table structure for category
@@ -63,7 +74,7 @@ CREATE TABLE `category` (
   `name` varchar(255) DEFAULT '',
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of category
@@ -71,7 +82,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` VALUES ('6', 'Java', '2017-01-10 20:33:56');
 INSERT INTO `category` VALUES ('7', 'Android', '2017-01-10 20:33:51');
 INSERT INTO `category` VALUES ('8', 'Javascript', '2017-01-10 20:34:20');
-INSERT INTO `category` VALUES ('9', '前端', '2017-01-10 20:34:25');
+INSERT INTO `category` VALUES ('9', '前端框架', '2017-01-10 20:34:25');
 INSERT INTO `category` VALUES ('10', 'Mysql', '2017-01-11 10:26:22');
 INSERT INTO `category` VALUES ('11', 'jQuery', '2017-01-11 10:26:23');
 INSERT INTO `category` VALUES ('12', '框架', '2017-01-11 10:26:23');
@@ -103,13 +114,11 @@ CREATE TABLE `comment` (
 -- Records of comment
 -- ----------------------------
 INSERT INTO `comment` VALUES ('1', '姓名(必填)', '网站(选填)', 'Email(选填)', '我还是很感兴趣的', '2017-01-13 15:32:58', '14', '7', '0');
-INSERT INTO `comment` VALUES ('2', 'Kingja ', 'www.baidu.com', 'abc@gmai.com', '先生请留步！', '2017-01-13 15:36:21', '14', '0', '0');
 INSERT INTO `comment` VALUES ('3', 'aaa', '网站(选填)', 'Email(选填)', 'dfa ds ', '2017-01-13 15:39:06', '14', '0', '0');
-INSERT INTO `comment` VALUES ('4', 'xiao', '网站(选填)', '我就是过来感谢下', '恩是的', '2017-01-13 17:09:52', '14', '0', '0');
 INSERT INTO `comment` VALUES ('5', '好事不留名', '网站(选填)', 'Email(选填)', '谢谢大侠，学到', '2017-01-16 14:08:41', '14', '0', '0');
 INSERT INTO `comment` VALUES ('6', '丽丽', '网站(选填)', 'Email(选填)', '不错', '2017-01-16 16:14:07', '14', '0', '0');
 INSERT INTO `comment` VALUES ('7', 'Jordan', 'www', 'email', '我是评论7', '2017-01-16 16:52:31', '14', '8', '1');
-INSERT INTO `comment` VALUES ('8', 'Jordan', 'www', 'email', '我是评论8', '2017-01-16 16:52:32', '14', '9', '7');
+INSERT INTO `comment` VALUES ('8', 'Jordan', 'www', 'email', '我是评论8', '2017-01-16 16:52:32', '10', '9', '7');
 INSERT INTO `comment` VALUES ('9', 'Jordan', 'www', 'email', '我是评论9', '2017-01-16 16:52:33', '14', '10', '8');
 INSERT INTO `comment` VALUES ('10', 'Jordan', 'www', 'email', '我是评论10', '2017-01-16 16:52:34', '14', '11', '9');
 INSERT INTO `comment` VALUES ('11', 'Jordan', 'www', 'email', '我是评论11', '2017-01-16 16:52:34', '14', '12', '10');
@@ -128,10 +137,23 @@ CREATE TABLE `user` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', 'aaa', 'bbb', 'KingJA Me', '0', '2017-01-09 10:49:18', '2017-01-09 11:13:38');
+INSERT INTO `user` VALUES ('2', 'bbb', 'bbb', 'jordon', '1', '2017-02-09 14:29:49', '2017-02-09 14:29:49');
+INSERT INTO `user` VALUES ('3', 'ccc', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:44');
+INSERT INTO `user` VALUES ('4', 'ddd', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:46');
+INSERT INTO `user` VALUES ('5', 'eee', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:47');
+INSERT INTO `user` VALUES ('6', 'ffff', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:49');
+INSERT INTO `user` VALUES ('7', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:52');
+INSERT INTO `user` VALUES ('8', 'jjjj', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:55');
+INSERT INTO `user` VALUES ('9', 'kkkk', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:57');
+INSERT INTO `user` VALUES ('10', 'mmmm', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:30:59');
+INSERT INTO `user` VALUES ('11', 'nnnn', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:02');
+INSERT INTO `user` VALUES ('12', 'iiii', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:04');
+INSERT INTO `user` VALUES ('13', 'oooo', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:06');
+INSERT INTO `user` VALUES ('14', 'qqqq', 'bbb', 'jordon', '1', '2017-02-09 14:30:35', '2017-02-09 14:31:15');
 SET FOREIGN_KEY_CHECKS=1;
