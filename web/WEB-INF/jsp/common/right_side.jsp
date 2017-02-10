@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="side">
-    <div class="hot block">
+    <div class="hot block_side">
         <span class="side-title">Hot article</span>
         <ul class="side-ul">
             <c:if test="${!empty hotArticles}">
@@ -19,7 +19,7 @@
             </c:if>
         </ul>
     </div>
-    <div class="hot block">
+    <div class="hot block_side">
         <span class="side-title">Category</span>
         <ul class="side-ul">
             <c:if test="${!empty categorys}">
@@ -29,7 +29,7 @@
             </c:if>
         </ul>
     </div>
-    <div class="hot block">
+    <div class="hot block_side">
         <span class="side-title">Date</span>
         <ul class="side-ul">
             <c:if test="${!empty months}">

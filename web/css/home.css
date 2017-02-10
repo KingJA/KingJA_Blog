@@ -1,5 +1,10 @@
 
-
+/*居中文字*/
+.container_index {
+    overflow: hidden;
+    margin: 20px auto;
+    width: 75%;
+}
 
 
 /*文章区*/
@@ -13,13 +18,13 @@
 
 /*侧边区/*/
 .side {
-    padding-right: 12px;
-    padding-left: 12px;
-    /*border: 1px solid #5e5e5e;*/
-    float: right;
-    width: 25%;
-    box-sizing: border-box;
-}
+     padding-right: 12px;
+     padding-left: 12px;
+     /*border: 1px solid #5e5e5e;*/
+     float: right;
+     width: 25%;
+     box-sizing: border-box;
+ }
 
 .side-li {
     list-style: none;
@@ -50,7 +55,7 @@
     border-bottom: 4px solid #c2c4c6;
 }
 
-.block {
+.block ,.block_side{
     border: 1px solid #eee;
     margin-bottom: 30px;
     padding: 20px;
@@ -111,5 +116,44 @@
 }
 .article-param{
     margin-top: 12px;
+}
+
+/** PC **/
+@media only screen and (min-width: 1025px){
+}
+/** iPad **/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+/** iPhone **/
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .article-category{
+        display: none;
+    }
+    .article-content{
+        width: 100%;
+        padding: 1em;
+        float: none;
+    }
+    .content{
+        width: 100%;
+    }
+    .container_index{
+        width: 90%;
+    }
+    /*侧边区/*/
+    .side {
+        float: right;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .article{
+        padding:1em;
+    }
+    .block {
+        padding: 0;
+    }
+    .side{
+        padding:0;
+    }
 }
 
