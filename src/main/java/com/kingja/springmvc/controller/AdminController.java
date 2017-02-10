@@ -256,9 +256,28 @@ public class AdminController {
      */
     @ResponseBody
     @RequestMapping(value = "/comment/doDelete", method = RequestMethod.POST)
-    public JResult doDelete(@RequestParam("id") long id) {
+    public JResult deleteComment(@RequestParam("id") long id) {
         JResult<Object> jResult = new JResult<Object>();
         int effectLine = adminDao.deleteComment(id);
+        if (effectLine > 0) {
+            jResult.setResultCode(0);
+        } else {
+            jResult.setResultCode(4).setResultText("操作失败");
+        }
+        return jResult;
+    }
+
+    /**
+     * 账户 删除
+     *
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/account/doDelete", method = RequestMethod.POST)
+    public JResult deleteAccount(@RequestParam("id") long id) {
+        JResult<Object> jResult = new JResult<Object>();
+        int effectLine = adminDao.deleteAccount(id);
         if (effectLine > 0) {
             jResult.setResultCode(0);
         } else {

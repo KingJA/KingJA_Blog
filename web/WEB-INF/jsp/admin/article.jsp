@@ -32,7 +32,7 @@
             <ul class="control-ul">
                 <li><a class="control-nav-a active" href="/admin/article"><i class="fa fa-file-text"></i>articles</a>
                 </li>
-                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-account"></i>account</a></li>
+                <li><a class="control-nav-a" href="/admin/account"><i class="fa fa-user"></i>account</a></li>
                 <li><a class="control-nav-a" href="/admin/category"><i class="fa fa-tags"></i>category</a></li>
                 <li><a class="control-nav-a" href="/admin/comment"><i class="fa fa-comments"></i>comment</a></li>
                 <li><a class="control-nav-a" href="/admin/drafts"><i class="fa fa-clipboard"></i>drafts</a></li>

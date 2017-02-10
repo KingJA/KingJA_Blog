@@ -31,5 +31,5 @@ public interface AdminDao {
     int deleteCategory(@Param(value = "id") long id);
     int deleteComment(@Param(value = "id") long id);
     int editCategory(@Param(value = "id") long id,@Param(value = "name") String name);
-
+    int deleteAccount(@Param(value = "id") long id);
 }
